@@ -1,1 +1,1 @@
-web: gunicorn pp4-photography-blog.wsgi
+web: gunicorn pp4_photography_blog.wsgi
