@@ -33,6 +33,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'pp4-photography-blog-dfac9ff0d622.herokuapp.com',
     'pp4-photography-blog.herokuapp.com',
+    '8000-blahblahbla-pp4photogra-h3lg2gdsojw.ws-us106.gitpod.io',
     'localhost',
     ]
 
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'blog',
+    'django_summernote'
 ]
 
 MIDDLEWARE = [
