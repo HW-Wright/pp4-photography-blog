@@ -24,7 +24,7 @@ class Post(models.Model):
     def likes_count(self):
         return self.likes.count()
 
-class Comments(models.Model):
+class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='photo_comment')
     comment_content = models.TextField()
     created_by = models.CharField(max_length=50)
