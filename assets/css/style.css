@@ -1,0 +1,16 @@
+
+
+/* Index.html - Hero Image */
+
+.hero-image {
+    background-image: url('/assets/images/blog_hero.jpeg');
+    height: 33hv;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    color: blue;
+}
