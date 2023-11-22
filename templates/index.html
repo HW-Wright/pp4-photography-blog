@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 hero-image">
+                <div class="hero-text">
+                    <h2>Text over hero Image</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container-fluid">
+        <div class="row"></div>
+            {% for post in post_list %}
+                <div class="col-md-4">
+                {% if post.status == True %}
+                    <div class="card mb-4 post">
+                        <div class="title">{{ post.title }}</div>
+                        <!-- <div class="card-body image"><img src="{{ post.image.url }}" alt="post_image"></div> -->
+                        <div class="author">{{ post.created_by }}</div>
+                        <div class="caption">{{ post.caption }}</div>
+                        <div class="likes">{{ post.likes }}</div>
+                        <div class="date">{{ post.date_created }}</div>
+                    </div>
+                {% endif %}
+        </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

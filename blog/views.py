@@ -4,15 +4,15 @@ from .models import Post, Comment
 
 
 # def featured_posts(request):
-#     posts = Post.objects.all()
+#     posts = Post.objects.order_by('date_created')[:3]
 #     context = {
 #         'posts' : posts
 #     }
-#     return render(request, '/templates/index.html/', context)
+#     template = 'inex.html'
+#     return render(request, template, context)
 
 
 class FeaturedPosts(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=True).order_by('-date_created')
+    queryset = Post.objects.filter(status=True).order_by('-date_created')[:3]
     template_name = 'index.html'
-    paginate_by = 9
