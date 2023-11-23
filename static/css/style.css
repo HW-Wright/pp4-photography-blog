@@ -1,13 +1,46 @@
-/* Custom CSS */
+@charset "UTF-8";
+
+/* -- Custom CSS -- */
+
+/* base.html */
 
 .post-preview {
     text-align: center;
 }
 
+.masthead {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-top: 100px;
+    padding-bottom: 8rem;
+    background-image: url('/static/images/hero-image-blog.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+.site-heading h1 {
+   color: #fff;
+   /* margin-top: -15px; */
+}
+
+.subheading {
+    color: #fff;
+    font-weight: 700;
+}
+
+.fas {
+    color:#212529;
+}
+
+.fab {
+    color: #e84229;
+}
+
 
 /* Bootstrap Clean Blog Theme */
 
-@charset "UTF-8";
+
 /*!
 * Start Bootstrap - Clean Blog v6.0.9 (https://startbootstrap.com/theme/clean-blog)
 * Copyright 2013-2023 Start Bootstrap
@@ -285,7 +318,6 @@ p a {
   z-index: 1030;
   border-bottom: 1px solid #dee2e6;
   background-color: #fff;
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 #mainNav .navbar-brand {
   font-weight: 800;
@@ -359,31 +391,6 @@ footer {
   padding-bottom: 3rem;
 }
 
-header.masthead {
-  position: relative;
-  margin-bottom: 3rem;
-  padding-top: calc(8rem + 57px);
-  padding-bottom: 8rem;
-  background: no-repeat center center;
-  background-color: #6c757d;
-  background-size: cover;
-  background-attachment: scroll;
-}
-header.masthead:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #212529;
-  opacity: 0.5;
-}
-
-header.masthead .site-heading {
-  color: #fff;
-}
-
 header.masthead .site-heading {
   text-align: center;
 }
@@ -399,7 +406,6 @@ header.masthead .site-heading .subheading {
   line-height: 1.1;
   display: block;
   margin-top: 0.625rem;
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 header.masthead .post-heading h1, header.masthead .post-heading .h1 {
   font-size: 2.25rem;
@@ -413,13 +419,11 @@ header.masthead .post-heading .subheading {
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0.75rem 0 2rem;
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 header.masthead .post-heading .meta {
   font-size: 1.25rem;
   font-weight: 300;
   font-style: italic;
-  font-family: "Lora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 header.masthead .post-heading .meta a {
   color: #fff;
