@@ -33,17 +33,59 @@
     color: #e84229;
 }
 
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* index.html  */
+
 .title {
   font-weight: 900;
   font-size: large;
 }
 
-/* .image {
-  width: 100px;
-  height: 100px;
-  background-image: ;
-} */
+.thumbnail {
+  border: 2px solid black;
+  margin-bottom: 5px;
+  width: 50vw;
+  height: auto;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  padding: 5px;
+}
 
+
+/* blog.html */
+
+#blog-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.blog-thumbnail {
+  display: inline-block;
+  width: 30%;
+  height: 500px;
+  margin: 5px;
+  vertical-align: top;
+  border: 1px solid black;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.image img {
+  object-fit:cover;
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+}
 
 /* Bootstrap Clean Blog Theme */
 
@@ -391,11 +433,6 @@ p a {
     /* if the user changes the scrolling direction, we show the header */
     transform: translate3d(0, 100%, 0);
   }
-}
-
-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
 }
 
 header.masthead .site-heading {

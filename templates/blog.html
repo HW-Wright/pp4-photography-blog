@@ -1,29 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<!-- Bootstrap Clean Blog Theme -->
-<div class="container">
-    <div class="row">
-                <!-- Custom Code -->
-                {% for post in post_list %}
-                <div class="col-md-4">
-                {% if post.status == True %}
-                    <a href="{% url 'specific_post' post.slug %}">
-                    <div>
-                        <div class="title">{{ post.title }}</div>
-                        <!-- <div class="image"><img src="{{ post.image.url }}" alt="post_image"></div> -->
-                        <div class="caption-preview">{{ post.caption }}</div>
-                    </a>
-                        <div class="author">From: {{ post.created_by }}</div>
-                        <div class="likes">{{ post.likes_count }}</div>
-                        <div class="date">{{ post.date_created }}</div>
-                    </div>
-                {% endif %}
-                </div>
-            {% endfor %}
+<div id="blog-box">
+    {% for post in post_list %}
+        <div class="blog-thumbnail">
+        {% if post.status == True %}
+            <a href="{% url 'specific_post' post.slug %}">
+            <div>
+                <div class="title">{{ post.title }}</div>
+                <div class="image"><img src="{{ post.image.url }}" alt="post_image"></div>
+                <div class="caption-preview">{{ post.caption }}</div>
+            </a>
+                <div class="author">From: {{ post.created_by }}</div>
+                <div class="likes">{{ post.likes_count }}</div>
+                <div class="date">{{ post.date_created }}</div>
             </div>
+        {% endif %}
         </div>
-    </div>
+    {% endfor %}
+        </div>
+</div>
 
 {% endblock %}
