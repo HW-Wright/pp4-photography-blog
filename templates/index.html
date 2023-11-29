@@ -10,11 +10,13 @@
                     {% for post in post_list %}
                     <div>
                     {% if post.status == True %}
+                        <a href="{% url 'specific_post' post.slug %}">
                         <div>
                             <div class="title">{{ post.title }}</div>
                             <!-- <div class="image"><img src="{{ post.image.url }}" alt="post_image"></div> -->
-                            <div class="author">{{ post.created_by }}</div>
-                            <div class="caption">{{ post.caption }}</div>
+                            <div class="caption-preview">{{ post.caption }}</div>
+                        </a>
+                            <div class="author">From: {{ post.created_by }}</div>
                             <div class="likes">{{ post.likes_count }}</div>
                             <div class="date">{{ post.date_created }}</div>
                         </div>

@@ -4,10 +4,6 @@
 
 /* base.html */
 
-.post-preview {
-    text-align: center;
-}
-
 .masthead {
     position: relative;
     margin-bottom: 3rem;
@@ -36,6 +32,17 @@
 .fab {
     color: #e84229;
 }
+
+.title {
+  font-weight: 900;
+  font-size: large;
+}
+
+/* .image {
+  width: 100px;
+  height: 100px;
+  background-image: ;
+} */
 
 
 /* Bootstrap Clean Blog Theme */
