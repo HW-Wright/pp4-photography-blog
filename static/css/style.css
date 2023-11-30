@@ -4,6 +4,7 @@
 
 /* base.html */
 
+
 .masthead {
     position: relative;
     margin-bottom: 3rem;
@@ -40,11 +41,6 @@ footer {
 
 /* index.html  */
 
-.title {
-  font-weight: 900;
-  font-size: large;
-}
-
 .thumbnail {
   border: 2px solid black;
   margin-bottom: 5px;
@@ -72,6 +68,17 @@ footer {
   margin: 5px;
   vertical-align: top;
   border: 1px solid black;
+}
+
+.captionPreview {
+  font-size: smaller;
+}
+
+.title {
+  font-weight: 900;
+  font-size: large;
+  color: #AB3510;
+  text-decoration: none;
 }
 
 .image {
