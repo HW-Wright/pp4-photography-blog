@@ -87,6 +87,25 @@ footer {
   max-width: 100%;
 }
 
+
+/* login.html */
+
+.helptext {
+  visibility: hidden;
+}
+
+.sign {
+  color: #e84229;
+  text-decoration: none;
+}
+
+.btn, .btn-danger {
+  background-color: #e84229;
+  color: black;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
 /* Bootstrap Clean Blog Theme */
 
 
