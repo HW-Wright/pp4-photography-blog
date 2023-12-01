@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <!-- Bootstrap Clean Blog Theme -->
 <article class="mb-4">
     <div class="container px-4 px-lg-5">
@@ -19,14 +21,29 @@
                             <div class="date">{{ post.date_created }}</div>
                         </div>
 
-                        <div>
-                            <h3>Comments:</h3>
+                        <div class="comment-section">
+                            <h4>Comments:</h4>
                             {% for comment in comments %}
                                 <div>
                                     <p class="comment">{{ comment.comment_content }}</p>
                                     <p class="comment-author">{{ comment.created_by }}</p>
                                 </div>
                             {% endfor %}
+                        </div>
+                        <div>
+                            {% if user.is_authenticated %}
+                            <h5>Add a comment as {{ user.username }}:</h5>
+                                <div>
+                                    <form method="POST" class="comment-form">
+                                        {{ comment_form | crispy }}
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger">Submit</button>
+                                    </form>
+                            {% else %}
+                                    <h6>Please <a class="sign" href="{% url 'account_login' %}">log in</a>, or 
+                                    <a class="sign" href="{% url 'account_signup' %}">create an account</a> to leave comments.</h6>
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
             </div>

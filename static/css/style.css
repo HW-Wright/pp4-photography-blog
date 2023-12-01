@@ -4,7 +4,6 @@
 
 /* base.html */
 
-
 .masthead {
     position: relative;
     margin-bottom: 3rem;
@@ -94,10 +93,19 @@ footer {
   max-width: 100%;
 }
 
+/* specific_post.html */
 
-/* login.html */
+form input {
+  visibility: visible;
+}
+
+/* login.html/logout.html/signup.html */
 
 .helptext {
+  visibility: hidden;
+}
+
+#id_email {
   visibility: hidden;
 }
 
