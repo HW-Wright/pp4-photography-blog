@@ -36,7 +36,10 @@
                                 <div>
                                     <form method="POST" class="comment-form">
                                         {{ comment_form | crispy }}
+                                        <input type="text" id="comment-input" name="comment-input" placeholder="Write comment here...">
                                         {% csrf_token %}
+                                        <br>
+                                        <br>
                                         <button type="submit" class="btn btn-danger">Submit</button>
                                     </form>
                             {% else %}
