@@ -2,8 +2,6 @@
 
 {% block content %}
 
-{% load crispy_forms_tags %}
-
 <!-- Bootstrap Clean Blog Theme -->
 <article class="mb-4">
     <div class="container px-4 px-lg-5">
@@ -11,43 +9,61 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
 
                 <!-- Custom Code -->
-                    <div class="full-post">
-                        <div>
-                            <h2 class="full-title">{{ post.title }}</h2> <span class="author">From: {{ post.created_by }}</span>
-                            <div class="full-image"><img src="{{ post.image.url }}" alt="post_image"></div>
-                            <p class="full-caption">{{ post.caption }}</p>
-                            <div class="likes">{{ post.likes_count }}</div>
-                            <span class="location">{{ post.location }}</span> - <span class="date">{{ post.date_created }}</span>
-                        </div>
-                        <br>
-                        <div class="comment-section">
-                            <h4>Comments:</h4>
-                            {% for comment in comments %}
-                                <div>
-                                    <p class="comment">{{ comment.comment_content }}</p>
-                                    <p class="comment-author">{{ comment.created_by }}</p>
-                                </div>
-                            {% endfor %}
-                        </div>
-                        <div>
-                            {% if user.is_authenticated %}
-                            <h5>Add a comment as {{ user.username }}:</h5>
-                                <div>
-                                    <form method="POST" class="comment-form">
-                                        {{ comment_form | crispy }}
-                                        <input type="text" id="comment-input" name="comment-input" placeholder="Write comment here...">
-                                        {% csrf_token %}
-                                        <br>
-                                        <br>
-                                        <button type="submit" class="btn btn-danger">Submit</button>
-                                    </form>
-                            {% else %}
-                                    <h6>Please <a class="link2" href="{% url 'account_login' %}">log in</a>, or 
-                                    <a class="link2" href="{% url 'account_signup' %}">create an account</a> to leave comments.</h6>
-                                </div>
-                            {% endif %}
-                        </div>
+                <div class="full-post">
+                    <div>
+                        <h2 class="full-title">{{ post.title }}</h2> <span class="author">From: {{ post.created_by }}</span>
+
+                        <div class="full-image"><img src="{{ post.image.url }}" alt="post_image"></div>
+
+                        <p class="full-caption">{{ post.caption }}</p>
+
+                        {% if user.is_authenticated %}
+                            <form action="{% url 'post_like' post.slug %}" method="POST">
+                                {% csrf_token %}
+                                {% if liked %}
+                                <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like">
+                                    <i class="fa-solid fa-heart liked"> {{ post.likes_count }}</i>
+                                </button>
+                                {% else %}
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
+                                    <i class="fa-solid fa-heart unliked"> {{ post.likes_count }}</i>
+                                </button>
+                                {% endif %}
+                            </form>
+                        {% else %}
+                        <div><i class="fa-solid fa-heart likes"></i><span class="likes"> {{ post.likes_count }}</span></div>
+                        {% endif %}
+
+                        <span class="location">{{ post.location }}</span> - <span class="date">{{ post.date_created }}</span>
+
                     </div>
+                    <br>
+                    <div class="comment-section">
+                        <h4>Comments:</h4>
+                        {% for comment in comments %}
+                            <div>
+                                <p class="comment">{{ comment.comment_content }}</p>
+                                <p class="comment-author">{{ comment.created_by }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        {% if user.is_authenticated %}
+                        <h5>Add a comment as {{ user.username }}:</h5>
+                            <div>
+                                <form method="POST" class="comment-form">
+                                    {{ comment_form }}
+                                    {% csrf_token %}
+                                    <input type="text" maxlength="500" minlength="1" required id="comment-input">
+                                    <button type="submit" class="btn btn-danger comment-btn">Submit</button>
+                                </form>
+                        {% else %}
+                                <h6>Please <a class="link2" href="{% url 'account_login' %}">log in</a>, or 
+                                <a class="link2" href="{% url 'account_signup' %}">create an account</a> to leave comments.</h6>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

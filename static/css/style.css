@@ -132,8 +132,9 @@ body {
 /* specific_post.html */
 
 .full-title {
-  font-weight: 700;
-  font-size: larger;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  font-size: 2rem;
   color: #fff;
   text-decoration: underline;
 }
@@ -162,6 +163,24 @@ body {
 
 .link2:hover {
   color: #212529;
+}
+
+.btn-like {
+  background: none;
+  border: none;
+  font-size: large;
+}
+
+.liked {
+  color: red;
+}
+
+.unliked {
+  color: #fff;
+}
+
+.comment-btn {
+  margin-top: 5px;
 }
 
 /* login.html/logout.html/signup.html */
