@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [
     'pp4-photography-blog-dfac9ff0d622.herokuapp.com',
     'pp4-photography-blog.herokuapp.com',
     '8000-blahblahbla-pp4photogra-h3lg2gdsojw.ws-us106.gitpod.io',
+    '8000-blahblahbla-pp4photogra-h3lg2gdsojw.ws-eu106.gitpod.io',
     'localhost',
     ]
 
@@ -77,6 +78,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'pp4_photography_blog.urls'
+
+DATE_INPUT_FORMATS = ['%d-%m-%Y']
 
 TEMPLATES = [
     {

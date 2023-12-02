@@ -10,15 +10,14 @@
                     {% for post in post_list %}
                     <div class="thumbnail">
                     {% if post.status == True %}
-                        <a href="{% url 'specific_post' post.slug %}">
+                        <a href="{% url 'specific_post' post.slug %}" id="hover">
                         <div>
-                            <div class="title">{{ post.title }}</div>
+                            <span class="title">{{ post.title }}</span> <span class="author">From: {{ post.created_by }}</span>
                             <div class="image"><img src="{{ post.image.url }}" alt="post_image"></div>
                         </a>
                             <div class="captionPreview">{{ post.caption }}</div>
-                            <div class="author">From: {{ post.created_by }}</div>
                             <div class="likes">{{ post.likes_count }}</div>
-                            <div class="date">{{ post.date_created }}</div>
+                            <span class="location">{{ post.location }}</span> - <span class="date">{{ post.date_created }}</span>
                         </div>
                     {% endif %}
                     </div>

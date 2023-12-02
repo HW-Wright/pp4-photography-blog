@@ -4,6 +4,10 @@
 
 /* base.html */
 
+body {
+  font-size: 1.25rem;
+}
+
 .masthead {
     position: relative;
     margin-bottom: 3rem;
@@ -17,7 +21,6 @@
 
 .site-heading h1 {
    color: #fff;
-   /* margin-top: -15px; */
 }
 
 .subheading {
@@ -30,18 +33,28 @@
 }
 
 .fab {
-    color: #e84229;
+    color: #952c0c;
+}
+
+.fab:hover {
+  color: #fff;
 }
 
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
+  border: hidden;
+}
+
+body {
+  background: rgb(171,53,16);
+  background: linear-gradient(0deg, rgba(171,53,16,1) 0%, rgba(0,0,0,1) 50%);
+  border: hidden;
 }
 
 /* index.html  */
 
 .thumbnail {
-  border: 2px solid black;
   margin-bottom: 5px;
   width: 50vw;
   height: auto;
@@ -49,6 +62,7 @@ footer {
   margin: 0 auto;
   margin-bottom: 5px;
   padding: 5px;
+  color: #fff;
 }
 
 
@@ -66,7 +80,7 @@ footer {
   height: 500px;
   margin: 5px;
   vertical-align: top;
-  border: 1px solid black;
+  color: #fff;
 }
 
 .captionPreview {
@@ -74,10 +88,14 @@ footer {
 }
 
 .title {
-  font-weight: 900;
+  font-weight: 700;
   font-size: large;
-  color: #AB3510;
-  text-decoration: none;
+  color: #fff;
+  text-decoration: underline;
+}
+
+.title:hover {
+  color: #952c0c;
 }
 
 .image {
@@ -93,10 +111,57 @@ footer {
   max-width: 100%;
 }
 
+.image img:hover {
+  border: 2px solid #952c0c;
+}
+
+.author {
+  font-size: small;
+  text-decoration: none;
+  color: #fff;
+}
+
+.author:hover {
+  color: #fff;
+}
+
+.date, .location {
+  font-size: smaller;
+}
+
 /* specific_post.html */
 
-form input {
-  visibility: visible;
+.full-title {
+  font-weight: 700;
+  font-size: larger;
+  color: #fff;
+  text-decoration: underline;
+}
+
+.full-post {
+  color: #fff;
+}
+
+.full-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.full-image img {
+  object-fit:cover;
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.link2 {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.link2:hover {
+  color: #212529;
 }
 
 /* login.html/logout.html/signup.html */
@@ -109,16 +174,44 @@ form input {
   visibility: hidden;
 }
 
-.sign {
-  color: #e84229;
+label {
+  color: #fff;
   text-decoration: none;
 }
 
+form ul {
+  color: #fff;
+  text-decoration: none;
+}
+
+.hide-email p:nth-of-type(2) {
+  display: none;
+}
+
+.sign {
+  color: #fff;
+}
+
+.link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: #952c0c;
+}
+
 .btn, .btn-danger {
-  background-color: #e84229;
-  color: black;
+  background-color: #212529;
+  color: #952c0c;
   font-weight: 600;
   margin-bottom: 5px;
+  border: none;
+}
+
+.btn:hover, .btn-danger:hover {
+  color: #fff;
+  background-color: #212529;
 }
 
 /* Bootstrap Clean Blog Theme */
@@ -147,6 +240,7 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
 }
 
 @media (min-width: 1200px) {
@@ -375,10 +469,6 @@ a:hover {
 .py-3 {
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
-}
-
-body {
-  font-size: 1.25rem;
 }
 
 hr {

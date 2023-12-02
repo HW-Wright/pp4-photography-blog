@@ -11,16 +11,15 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
 
                 <!-- Custom Code -->
-                    <div>
+                    <div class="full-post">
                         <div>
-                            <h2 class="title">{{ post.title }}</h2>
-                            <div class="image"><img src="{{ post.image.url }}" alt="post_image"></div>
-                            <div class="author">{{ post.created_by }}</div>
+                            <h2 class="full-title">{{ post.title }}</h2> <span class="author">From: {{ post.created_by }}</span>
+                            <div class="full-image"><img src="{{ post.image.url }}" alt="post_image"></div>
                             <p class="full-caption">{{ post.caption }}</p>
                             <div class="likes">{{ post.likes_count }}</div>
-                            <div class="date">{{ post.date_created }}</div>
+                            <span class="location">{{ post.location }}</span> - <span class="date">{{ post.date_created }}</span>
                         </div>
-
+                        <br>
                         <div class="comment-section">
                             <h4>Comments:</h4>
                             {% for comment in comments %}
@@ -43,8 +42,8 @@
                                         <button type="submit" class="btn btn-danger">Submit</button>
                                     </form>
                             {% else %}
-                                    <h6>Please <a class="sign" href="{% url 'account_login' %}">log in</a>, or 
-                                    <a class="sign" href="{% url 'account_signup' %}">create an account</a> to leave comments.</h6>
+                                    <h6>Please <a class="link2" href="{% url 'account_login' %}">log in</a>, or 
+                                    <a class="link2" href="{% url 'account_signup' %}">create an account</a> to leave comments.</h6>
                                 </div>
                             {% endif %}
                         </div>
