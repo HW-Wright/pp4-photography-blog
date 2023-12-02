@@ -17,6 +17,8 @@
 
                         <p class="full-caption">{{ post.caption }}</p>
 
+                        <span class="location">{{ post.location }}</span> - <span class="date">{{ post.date_created }}</span>
+
                         {% if user.is_authenticated %}
                             <form action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
@@ -31,15 +33,12 @@
                                 {% endif %}
                             </form>
                         {% else %}
-                        <div><i class="fa-solid fa-heart likes"></i><span class="likes"> {{ post.likes_count }}</span></div>
+                                <div><i class="fa-solid fa-heart likes"></i><span class="likes"> {{ post.likes_count }}</span></div>
                         {% endif %}
-
-                        <span class="location">{{ post.location }}</span> - <span class="date">{{ post.date_created }}</span>
 
                     </div>
                     <br>
                     <div class="comment-section">
-                        <h4>Comments:</h4>
                         {% for comment in comments %}
                             <div>
                                 <p class="comment">{{ comment.comment_content }}</p>
@@ -49,6 +48,7 @@
                     </div>
                     <div>
                         {% if user.is_authenticated %}
+                        <h4>Comments:</h4>
                         <h5>Add a comment as {{ user.username }}:</h5>
                             <div>
                                 <form method="POST" class="comment-form">
@@ -59,7 +59,7 @@
                                 </form>
                         {% else %}
                                 <h6>Please <a class="link2" href="{% url 'account_login' %}">log in</a>, or 
-                                <a class="link2" href="{% url 'account_signup' %}">create an account</a> to leave comments.</h6>
+                                <a class="link2" href="{% url 'account_signup' %}">create an account</a> to leave comments and like posts.</h6>
                             </div>
                         {% endif %}
                     </div>

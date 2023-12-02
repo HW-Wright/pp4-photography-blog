@@ -11,7 +11,7 @@
                 <div class="image"><img src="{{ post.image.url }}" alt="post_image"></div>
             </a>
                 <div class="captionPreview">{{ post.caption }}</div>
-                <div class="likes">{{ post.likes_count }}</div>
+                <div><i class="fa-solid fa-heart likes"></i><span class="likes"> {{ post.likes_count }}</span></div>
                 <span class="location">{{ post.location }}</span> - <span class="date">{{ post.date_created }}</span>
             </div>
         {% endif %}
