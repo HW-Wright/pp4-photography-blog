@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 
 class FeaturedPosts(generic.ListView):
@@ -79,3 +79,15 @@ class AllPosts(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=True).order_by('-date_created')
     template_name = 'blog.html'
+
+def add_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index.html')
+    form = PostForm()
+    context = {
+        'form': form
+    }
+    return render(request, 'templates/add_post.html', context)

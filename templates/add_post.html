@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block contnent %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+
+            <h3 class="sign">Create a Post</h3>
+                <p class="sign">
+                    Already have an account? Then please <a href="{{ login_url }}" class="link">sign in.</a>
+                </p>
+
+                <form method="POST" action="add">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div>
+                        <p>
+                            <button type="submit" class="btn btn-danger">Create Your Post</button>
+                        </p>
+                    </div>
+                </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
