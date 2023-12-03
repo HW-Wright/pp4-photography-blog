@@ -43,7 +43,8 @@ body {
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
-  border: hidden;
+  border: none;
+  clear: both;
 }
 
 body {
@@ -271,6 +272,99 @@ form ul {
   background-color: #212529;
 }
 
+
+ /* Responsive Media  */
+
+ @media (min-width: 1300px) {
+  header.masthead {
+    padding-top: 12.5rem;
+    padding-bottom: 12.5rem;
+  }
+  header.masthead .page-heading h1, header.masthead .page-heading .h1,
+  header.masthead .site-heading h1,
+  header.masthead .site-heading .h1 {
+    font-size: 10rem;
+  }
+  header.masthead .post-heading h1, header.masthead .post-heading .h1 {
+    font-size: 8rem;
+  }
+  header.masthead .post-heading .subheading {
+    font-size: 5rem;
+  }
+}
+
+ @media (min-width: 992px) {
+  header.masthead {
+    padding-top: 12.5rem;
+    padding-bottom: 12.5rem;
+  }
+  header.masthead .page-heading h1, header.masthead .page-heading .h1,
+  header.masthead .site-heading h1,
+  header.masthead .site-heading .h1 {
+    font-size: 5rem;
+  }
+  header.masthead .post-heading h1, header.masthead .post-heading .h1 {
+    font-size: 3.5rem;
+  }
+  header.masthead .post-heading .subheading {
+    font-size: 1.875rem;
+  }
+}
+
+@media (max-width: 992px) {
+  header.masthead {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  header.masthead .page-heading h1, header.masthead .page-heading .h1,
+  header.masthead .site-heading h1,
+  header.masthead .site-heading .h1 {
+    font-size: 2rem;
+  }
+  header.masthead .post-heading h1, header.masthead .post-heading .h1 {
+    font-size: 2rem;
+  }
+  header.masthead .post-heading .subheading {
+    font-size: 1.2rem;
+  }
+  .navbar-brand {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 770px) {
+  .nav-item, .navbar-nav, .ms-auto, .py-4, .py-lg-0 {
+    display: inline;
+  }
+  .masthead {
+    font-size: 0.5rem;
+  }
+  .blog-thumbnail {
+    display: inline-block;
+    width: 30%;
+    height: 500px;
+    margin: 5px;
+    vertical-align: top;
+    color: #fff;
+  }
+  .thumbnail {
+    margin-bottom: 5px;
+    width: 70vw;
+    height: auto;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    padding: 5px;
+    color: #fff;
+  }
+  .title {
+    font-weight: 500;
+    font-size: medium;
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
 /* Bootstrap Clean Blog Theme */
 
 
@@ -300,11 +394,11 @@ body {
 
 }
 
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
   h1, .h1 {
     font-size: 2.5rem;
   }
-}
+} */
 
 h2, .h2 {
   font-size: calc(1.325rem + 0.9vw);
@@ -546,12 +640,13 @@ p a {
   left: 0;
   right: 0;
   z-index: 1030;
-  border-bottom: 1px solid #dee2e6;
-  background-color: #fff;
 }
+
 #mainNav .navbar-brand {
   font-weight: 800;
+  color: #fff;
 }
+
 #mainNav .navbar-toggler {
   font-size: 0.75rem;
   font-weight: 800;
@@ -563,57 +658,7 @@ p a {
   font-weight: 800;
   letter-spacing: 0.0625em;
   text-transform: uppercase;
-}
-@media (min-width: 992px) {
-  #mainNav {
-    border-bottom: 1px solid transparent;
-    background: transparent;
-  }
-  #mainNav .navbar-brand {
-    color: #fff;
-  }
-  #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-    color: rgba(255, 255, 255, 0.8);
-  }
-  #mainNav .navbar-nav > li.nav-item > a.nav-link {
-    color: #fff;
-  }
-  #mainNav .navbar-nav > li.nav-item > a.nav-link:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link:hover {
-    color: rgba(255, 255, 255, 0.8);
-  }
-}
-@media (min-width: 992px) {
-  #mainNav {
-    transition: background-color 0.2s;
-    /* Force Hardware Acceleration in WebKit */
-    transform: translate3d(0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  #mainNav.is-fixed {
-    /* when the user scrolls down, we hide the header right above the viewport */
-    position: fixed;
-    top: -83px;
-    transition: transform 0.2s;
-    border-bottom: 1px solid white;
-    background-color: rgba(255, 255, 255, 0.9);
-  }
-  #mainNav.is-fixed .navbar-brand {
-    color: #212529;
-  }
-  #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
-    color: #0085A1;
-  }
-  #mainNav.is-fixed .navbar-nav > li.nav-item > a {
-    color: #212529;
-  }
-  #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
-    color: #0085A1;
-  }
-  #mainNav.is-visible {
-    /* if the user changes the scrolling direction, we show the header */
-    transform: translate3d(0, 100%, 0);
-  }
+  color: #fff;
 }
 
 header.masthead .site-heading {
@@ -652,23 +697,6 @@ header.masthead .post-heading .meta {
 }
 header.masthead .post-heading .meta a {
   color: #fff;
-}
-@media (min-width: 992px) {
-  header.masthead {
-    padding-top: 12.5rem;
-    padding-bottom: 12.5rem;
-  }
-  header.masthead .page-heading h1, header.masthead .page-heading .h1,
-  header.masthead .site-heading h1,
-  header.masthead .site-heading .h1 {
-    font-size: 5rem;
-  }
-  header.masthead .post-heading h1, header.masthead .post-heading .h1 {
-    font-size: 3.5rem;
-  }
-  header.masthead .post-heading .subheading {
-    font-size: 1.875rem;
-  }
 }
 
 .section-heading {
