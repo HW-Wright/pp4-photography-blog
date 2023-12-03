@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.conf import settings
 
 STATUS = ((False, 'Draft'), (True, 'Published'))
 
@@ -27,7 +28,7 @@ class Post(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='photo_comment')
     comment_content = models.TextField()
-    created_by = models.CharField(max_length=50)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comment_author')
     date_created = models.DateTimeField(auto_now_add=True)
 
     class Meta:

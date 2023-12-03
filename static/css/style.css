@@ -179,8 +179,46 @@ body {
   color: #fff;
 }
 
+.fa-heart {
+  padding: 15px 0px 15px;
+}
+
 .comment-btn {
   margin-top: 5px;
+  display: block;
+}
+
+.requiredField {
+  display: none;
+}
+
+#id_comment_content {
+  width: 33vw;
+  height: 10vh;
+}
+
+#comment-author {
+  font-size: small;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+#comment {
+  font-size: medium;
+  margin-top: 0;
+  margin-bottom: 2px;
+  padding-left: 10px;
+}
+
+.specific-comment {
+  width: 33vw;
+  padding: 3px 3px 15px 3px;
+}
+
+.comment-header {
+  padding-top: 5px;
+  border-top: 2px solid #fff;
+  width: 33vw;
 }
 
 /* login.html/logout.html/signup.html */

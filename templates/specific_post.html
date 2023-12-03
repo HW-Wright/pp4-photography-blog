@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <!-- Bootstrap Clean Blog Theme -->
@@ -33,28 +35,25 @@
                                 {% endif %}
                             </form>
                         {% else %}
-                                <div><i class="fa-solid fa-heart likes"></i><span class="likes"> {{ post.likes_count }}</span></div>
+                                <div><i class="fa-regular fa-heart likes"></i><span class="likes"> {{ post.likes_count }}</span></div>
                         {% endif %}
-
-                    </div>
-                    <br>
-                    <div class="comment-section">
-                        {% for comment in comments %}
-                            <div>
-                                <p class="comment">{{ comment.comment_content }}</p>
-                                <p class="comment-author">{{ comment.created_by }}</p>
-                            </div>
-                        {% endfor %}
                     </div>
                     <div>
                         {% if user.is_authenticated %}
-                        <h4>Comments:</h4>
-                        <h5>Add a comment as {{ user.username }}:</h5>
+                        <h5 class="comment-header">Comments:</h5>
+                        <div class="comment-section">
+                            {% for comment in comments %}
+                                <div class="specific-comment">
+                                    <p id="comment-author">{{ comment.created_by }}:</p>
+                                    <p id="comment">{{ comment.comment_content }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <h5 class="comment-header">Add a comment as {{ user.username }}:</h5>
                             <div>
                                 <form method="POST" class="comment-form">
-                                    {{ comment_form }}
+                                    {{ comment_form | crispy }}
                                     {% csrf_token %}
-                                    <input type="text" maxlength="500" minlength="1" required id="comment-input">
                                     <button type="submit" class="btn btn-danger comment-btn">Submit</button>
                                 </form>
                         {% else %}

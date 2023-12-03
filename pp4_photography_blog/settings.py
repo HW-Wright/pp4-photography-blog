@@ -25,7 +25,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -33,10 +33,12 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'pp4-photography-blog-dfac9ff0d622.herokuapp.com',
     'pp4-photography-blog.herokuapp.com',
-    '8000-blahblahbla-pp4photogra-h3lg2gdsojw.ws-us106.gitpod.io',
-    '8000-blahblahbla-pp4photogra-h3lg2gdsojw.ws-eu106.gitpod.io',
+    '8000-blahblahbla-pp4photogra-24jzid3wanx.ws-eu106.gitpod.io',
     'localhost',
     ]
+
+CSRF_TRUSTED_ORIGINS =[
+"https://8000-blahblahbla-pp4photogra-24jzid3wanx.ws-eu106.gitpod.io" ]
 
 
 # Application definition
