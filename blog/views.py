@@ -14,38 +14,38 @@ class FeaturedPosts(generic.ListView):
     template_name = 'index.html'
 
 
-class EditComment(generic.UpdateView):
-    model = Comment
-    template_name = 'edit_comment.html'
-    form_class = CommentForm
+# class EditComment(generic.UpdateView):
+#     model = Comment
+#     template_name = 'edit_comment.html'
+#     form_class = CommentForm
 
-    def post(self, request, slug, *args, **kwargs):
-        queryset = Post.objects.filter(status=True)
-        post = get_object_or_404(queryset, slug=slug)
-        comments = post.photo_comment.order_by("date_created")
-        liked = False
-        if post.likes.filter(id=self.request.user.id).exists():
-            liked = True
+#     def post(self, request, slug, *args, **kwargs):
+#         queryset = Post.objects.filter(status=True)
+#         post = get_object_or_404(queryset, slug=slug)
+#         comments = post.photo_comment.order_by("date_created")
+#         liked = False
+#         if post.likes.filter(id=self.request.user.id).exists():
+#             liked = True
 
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            comment = comment_form.save(commit=False)
-            comment.created_by = request.user
-            comment.post = post
-            comment.save()
-        else:
-            comment_form = CommentForm()
+#         comment_form = CommentForm(data=request.POST)
+#         if comment_form.is_valid():
+#             comment = comment_form.save(commit=False)
+#             comment.created_by = request.user
+#             comment.post = post
+#             comment.save()
+#         else:
+#             comment_form = CommentForm()
 
-        return render(
-            request,
-            "specific_post.html",
-            {
-                "post": post,
-                "comments": comments,
-                "comment_form": CommentForm(),
-                "liked": liked
-            },
-        )
+#         return render(
+#             request,
+#             "specific_post.html",
+#             {
+#                 "post": post,
+#                 "comments": comments,
+#                 "comment_form": CommentForm(),
+#                 "liked": liked
+#             },
+#         )
 
 class SpecificPost(View):
 
@@ -117,6 +117,7 @@ class AllPosts(generic.ListView):
     template_name = 'blog.html'
 
 
+
 def edit_post(request, slug):
     queryset = Post.objects.filter(status=True)
     post = get_object_or_404(queryset, slug=slug)
@@ -164,32 +165,5 @@ def delete_post(request, slug):
         'queryset': queryset
     }
     return render(request, 'blog.html', context)
-
-
-
-
-
-
-# def edit_comment(request, slug, comment_id):
-#     queryset = Post.objects.all
-#     comment = get_object_or_404(Comment, slug=slug, id=comment_id)
-#     if request.user == Comment.created_by:
-#         return redirect('edit_comment.html')
-#     if request.method == 'POST':
-#         form = CommentForm(request.POST, instance=comment)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('specific_post.html', slug=slug)
-#     else:
-#         form = CommentForm(instance=comment)
-    
-#     context = {
-#         'form': form,
-#         'comment': comment
-#     }
-
-#     return render(request, 'edit_comment.html', context)
- 
-#     return redirect('specific_post.html', slug)
 
 
