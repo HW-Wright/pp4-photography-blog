@@ -8,14 +8,15 @@
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
 
-            <h3 class="sign">Create your post</h3>
+            <h3 class="sign">Amend your comment</h3>
+                <p class="sign">To remove, simply clear.</p>
                 {% if user.is_authenticated %}
                     <form method="POST" class="post-form">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <div>
                             <p>
-                                <button type="submit" class="btn btn-danger">Create Your Post</button>
+                                <button type="submit" class="btn btn-danger">Update Your Comment</button>
                             </p>
                         </div>
                     </form>

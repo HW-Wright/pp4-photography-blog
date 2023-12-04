@@ -44,8 +44,13 @@
                         <div class="comment-section">
                             {% for comment in comments %}
                                 <div class="specific-comment">
-                                    <p id="comment-author">{{ comment.created_by }}:</p>
-                                    <p id="comment">{{ comment.comment_content }}</p>
+                                    {% if user.is_authenticated and user == comment.created_by %}
+                                        <p id="comment-author">{{ comment.created_by }}:</p>
+                                        <a href="{% url 'edit_comment' %}"><i class="fa-solid fa-circle-xmark btn btn-danger"><button class="btn btn-danger"></button></i></a><span id="comment">{{ comment.comment_content }}</span>
+                                        {% else %}
+                                            <p id="comment-author">{{ comment.created_by }}:</p>
+                                            <p id="comment">{{ comment.comment_content }}</p>
+                                    {% endif %}
                                 </div>
                             {% endfor %}
                         </div>
@@ -59,6 +64,15 @@
                         {% else %}
                                 <h6>Please <a class="link2" href="{% url 'account_login' %}">log in</a>, or 
                                 <a class="link2" href="{% url 'account_signup' %}">create an account</a> to leave comments and like posts.</h6>
+                            </div>
+                        {% endif %}
+
+                        {% if user.is_authenticated and user == post.created_by %}
+                            <div class="edit-post">
+                                <a href="{% url 'edit' post.slug %}"><button type="" class="btn btn-danger">Edit This Post</button></a>
+                            </div>
+                            <div class="edit-post">
+                                <a href="{% url 'delete_post' post.slug %}"><button type="" class="btn btn-danger">Delete This Post</button></a>
                             </div>
                         {% endif %}
                     </div>

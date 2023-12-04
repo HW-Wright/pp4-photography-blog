@@ -231,14 +231,23 @@ body {
   width: 33vw;
 }
 
+.edit-post {
+  text-align: center;
+  margin: 0 auto;
+}
+
 /* add_post.html */
 
-.add-post-form>p>label {
+.post-form>p>label {
   vertical-align: top;
 }
 
 #id_image {
   color: #fff;
+}
+
+.errorlist {
+  display: none;
 }
 
 /* login.html/logout.html/signup.html */

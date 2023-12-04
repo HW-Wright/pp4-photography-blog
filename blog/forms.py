@@ -3,10 +3,12 @@ from django import forms
 from django.forms import ModelForm
 from cloudinary.forms import CloudinaryFileField
 
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('comment_content',)
+
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -20,6 +22,17 @@ class PostForm(forms.ModelForm):
             ]
     
     image = CloudinaryFileField()
+
+
+class EditForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = [
+            'title',
+            'caption',
+            'location',
+            'status'
+            ]
 
 
 
