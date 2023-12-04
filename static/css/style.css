@@ -133,6 +133,12 @@ body {
   font-size: smaller;
 }
 
+.add-post {
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 5px;
+}
+
 /* specific_post.html */
 
 .full-title {
@@ -223,6 +229,16 @@ body {
   padding-top: 5px;
   border-top: 2px solid #fff;
   width: 33vw;
+}
+
+/* add_post.html */
+
+.add-post-form>p>label {
+  vertical-align: top;
+}
+
+#id_image {
+  color: #fff;
 }
 
 /* login.html/logout.html/signup.html */

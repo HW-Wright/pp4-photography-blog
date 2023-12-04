@@ -27,4 +27,16 @@
         </div>
     </div>
 
+    {% if user.is_authenticated %}
+        <div class="add-post">
+            <a href="{% url 'add' %}"><button type="" class="btn btn-danger add-post">Add Post</button></a>
+        </div>
+        {% else %}
+            <div>
+                <h6 class="add-post">Please <a class="link2" href="{% url 'account_login' %}">log in</a>, or 
+                <a class="link2" href="{% url 'account_signup' %}">create an account</a> to create a post.</h6>
+            </div>
+    {% endif %}
+
+
 {% endblock %}
