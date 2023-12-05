@@ -36,3 +36,12 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'{self.comment_content} from {self.created_by}'
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    points = models.IntegerField(default=0)
+
+    def post_points(self):
+        self.points = self.user.post_set.count() * 100
+        self.save()

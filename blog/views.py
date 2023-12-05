@@ -1,11 +1,14 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post, Comment
 from .forms import CommentForm, PostForm, EditForm
-from django.contrib.messages.views import SuccessMessageMixin
+
 
 
 class FeaturedPosts(generic.ListView):
@@ -14,7 +17,7 @@ class FeaturedPosts(generic.ListView):
     template_name = 'index.html'
 
 
-# class EditComment(generic.UpdateView):
+# class EditComment(LoginRequiredMixin, generic.UpdateView):
 #     model = Comment
 #     template_name = 'edit_comment.html'
 #     form_class = CommentForm
@@ -53,7 +56,6 @@ class SpecificPost(View):
         queryset = Post.objects.filter(status=True)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.photo_comment.order_by("date_created")
-        print(CommentForm())
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -69,11 +71,16 @@ class SpecificPost(View):
             },
         )
 
+    @method_decorator(login_required)
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=True)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.photo_comment.order_by("date_created")
         liked = False
+
+        if not request.user.is_authenticated:
+            raise Http404
+
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
@@ -98,7 +105,7 @@ class SpecificPost(View):
         )
 
 
-class LikePost(View):
+class LikePost(LoginRequiredMixin, View):
 
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
@@ -117,7 +124,7 @@ class AllPosts(generic.ListView):
     template_name = 'blog.html'
 
 
-
+@login_required
 def edit_post(request, slug):
     queryset = Post.objects.filter(status=True)
     post = get_object_or_404(queryset, slug=slug)
@@ -137,14 +144,16 @@ def edit_post(request, slug):
     return render(request, 'edit_post.html', context)
 
 
+@login_required
 def add_post(request):
     form = PostForm(request.POST, request.FILES)
     if request.method == 'POST':
         if form.is_valid():
             new_post = form.save(commit=False)
-            post.created_by = request.user
+            new_post.created_by = request.user
+            new_post.slug = new_post.title
             new_post = form.save()
-            return redirect('index.html')
+            return redirect('homepage')
         else:
             form = PostForm(request.POST, request.FILES)
     
@@ -155,15 +164,29 @@ def add_post(request):
     return render(request, 'add_post.html', context)
 
 
+@login_required
 def delete_post(request, slug):
-    queryset = Post.objects.filter(status=True).order_by('-date_created')
+    queryset = Post.objects.filter(status=True)
     post = get_object_or_404(queryset, slug=slug)
     if request.user == Post.created_by:
+        print('deleted')
         post.delete()
+    else:
+        print('notdeleted')
 
-    context = {
-        'queryset': queryset
-    }
-    return render(request, 'blog.html', context)
+    return redirect('blog')
+
+
+@login_required
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.user == Comment.created_by:
+        print('deleted')
+        comment.delete()
+    else:
+        print('notdeleted')
+
+    return redirect('blog')
+
 
 
