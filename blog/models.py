@@ -13,7 +13,7 @@ class Post(models.Model):
     caption = models.TextField()
     location = models.TextField()
     likes = models.ManyToManyField(User, related_name='photo_likes', blank=True)
-    date_created = models.DateField(auto_now_add=True)
+    date_created = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField(choices=STATUS, default=False)
 
     class Meta:

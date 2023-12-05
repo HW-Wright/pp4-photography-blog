@@ -151,7 +151,8 @@ def add_post(request):
         if form.is_valid():
             new_post = form.save(commit=False)
             new_post.created_by = request.user
-            new_post.slug = new_post.title
+            new_slug = new_post.title.lower()
+            new_post.slug = new_slug.replace(" ", "-")
             new_post = form.save()
             return redirect('homepage')
         else:
