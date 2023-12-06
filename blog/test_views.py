@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 from .models import User, Post, Comment, Editor
-from .views import FeaturedPosts, SpecificPost, LikePost, AllPosts, edit_post, add_post, delete_comment, delete_post
+from .views import FeaturedPosts, SpecificPost, LikePost, edit_post, add_post, delete_post
 
 
 class TestViews(TestCase):
@@ -26,7 +26,6 @@ class TestViews(TestCase):
             post = self.post,
             created_by = self.user,
             comment_content = 'test',
-            comment_id = 1
         )
 
     """The view should produce the three posts with the most likes,
