@@ -41,12 +41,18 @@ class Comment(models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    points = models.IntegerField(default=0)
 
-    def user_points(user_id):
-        user = User.objects.get(id=user_id)
-        posts_amount = Post.objects.filter(created_by=user).count()
-        comments_amount = Comment.objects.filter(created_by=user).count()
+    def user_points(self):
+        posts_amount = Post.objects.filter(created_by=self.user).count()
+        comments_amount = Comment.objects.filter(created_by=self.user).count()
         points = (posts_amount * 100) + (comment_amount * 50)
 
         return points
+
+
+class Editor(models.Model):
+    name = models.CharField(max_length=50)
+    photo = CloudinaryField()
+    one_line_bio = models.CharField(max_length=50)
+
+    

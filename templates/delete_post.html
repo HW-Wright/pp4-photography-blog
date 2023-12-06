@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mt-3 offset-md-2">
+                <h3 class="sign">Delete Post</h3>
+                    <p class="sign">Are you sure you want to delete your post?</p>
+            </div>
+            <div class="row">
+                <div class="col-md-8 mt-3 offset-md-2">
+            
+            {% if user.is_authenticated %}
+                <form method="post" class="post-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div>
+                        <p>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </p>
+                    </div>
+                </form>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

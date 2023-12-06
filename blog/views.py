@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post, Comment
-from .forms import CommentForm, PostForm, EditForm
+from .forms import CommentForm, PostForm, EditForm, DeleteForm
 
 
 
@@ -90,7 +90,7 @@ class AllPosts(generic.ListView):
 @login_required
 def edit_post(request, slug):
     queryset = Post.objects.filter(status=True)
-    post = get_object_or_404(queryset, slug=slug)
+    post = get_object_or_404(queryset, slug=slug, created_by=request.user)
 
     if request.method == 'POST':
         form = EditForm(request.POST, instance=post)
@@ -131,26 +131,28 @@ def add_post(request):
 
 @login_required
 def delete_post(request, slug):
-    post = get_object_or_404(Post, slug=slug)
-    if request.user == Post.created_by:
-        print('deleted')
-        post.delete()
-    else:
-        print('notdeleted')
+    queryset = Post.objects.filter(status=True)
+    post = get_object_or_404(queryset, slug=slug, created_by=request.user)
 
-    return redirect('blog')
+    if request.method == 'POST':
+        form = DeleteForm(request.POST, instance=post)
+        if form.is_valid():
+            post.delete()
+            return redirect('blog')
+    else:
+        form = DeleteForm(instance=post)
+    
+    context = {
+        'form': form
+    }
+
+    return render(request, 'delete_post.html', context)
 
 
 @login_required
-def delete_comment(request, comment_id):
-    comment = get_object_or_404(Comment, id=comment_id)
-    if request.user == Comment.created_by:
-        print('deleted')
+def delete_comment(request, comment_id, slug):
+    comment = get_object_or_404(Comment, id=comment_id, created_by=request.user)
+    if request.user == comment.created_by:
         comment.delete()
-    else:
-        print('notdeleted')
 
-    return redirect('blog')
-
-
-
+    return redirect('specific_post', slug=slug)

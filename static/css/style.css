@@ -33,11 +33,11 @@ body {
 }
 
 .fab {
-    color: #952c0c;
+    color: #fff;
 }
 
 .fab:hover {
-  color: #fff;
+  color: #952c0c;
 }
 
 footer {
@@ -289,14 +289,14 @@ form ul {
 
 .btn, .btn-danger {
   background-color: #212529;
-  color: #952c0c;
+  color: #fff;
   font-weight: 600;
   margin-bottom: 5px;
   border: none;
 }
 
 .btn:hover, .btn-danger:hover {
-  color: #fff;
+  color: #952c0c;
   background-color: #212529;
 }
 

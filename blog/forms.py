@@ -22,14 +22,12 @@ class PostForm(forms.ModelForm):
             'location',
             'status'
             ]
-    
-    # def __init__(self, *args, **kwargs):
-    #     super(PostForm, self).__init__(*args, **kwargs)
-    #     self.helper = FormHelper(self)
 
-    # def save(self, *args, **kwargs):
-    #     self.instance.slug = slugify(self.cleaned_data['title]'])
-    #     return super(PostForm, self).save(*args, **kwargs)
+
+class DeleteForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = []
 
 
 class EditForm(forms.ModelForm):
