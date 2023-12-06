@@ -131,8 +131,7 @@ def add_post(request):
 
 @login_required
 def delete_post(request, slug):
-    queryset = Post.objects.filter(status=True)
-    post = get_object_or_404(queryset, slug=slug)
+    post = get_object_or_404(Post, slug=slug)
     if request.user == Post.created_by:
         print('deleted')
         post.delete()

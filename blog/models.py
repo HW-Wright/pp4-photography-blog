@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Count
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.conf import settings
@@ -42,6 +43,10 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     points = models.IntegerField(default=0)
 
-    def post_points(self):
-        self.points = self.user.post_set.count() * 100
-        self.save()
+    def user_points(user_id):
+        user = User.objects.get(id=user_id)
+        posts_amount = Post.objects.filter(created_by=user).count()
+        comments_amount = Comment.objects.filter(created_by=user).count()
+        points = (posts_amount * 100) + (comment_amount * 50)
+
+        return points
