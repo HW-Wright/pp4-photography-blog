@@ -29,14 +29,15 @@
     </div>
 </section>
 
-<section id="editors">
-    <div class="container">
-        {% for editor in editors_list %}
-            <div class="col">
-                <img src="{{ editor.image.url }}" alt="post_image">
-                <span class="badge badge-primary">{{ editor.name }}</span>
-                <p>{{ editor.one_line_bio }}</p>
-            </div>
+<section id="editors">    
+    <h4 class="team">Meet the Team!</h4>
+    <div class="editors-section">
+        {% for editor in editors %}
+            <span class="editors">
+                <img src="{{ editor.photo.url }}" alt="post_image">
+                <div class="">{{ editor.name }}</div>
+                <div>"{{ editor.one_line_bio }}"</div>
+            </span>
         {% endfor %}
     </div>
 </section>

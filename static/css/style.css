@@ -69,6 +69,30 @@ body {
   color: #fff;
 }
 
+.editors-section {
+  text-align: center;
+}
+
+.team {
+  text-align: center;
+  color: #fff;
+  font-weight: 500;
+}
+
+#editors {
+  display: inline;
+  text-align: center;
+  color: #fff;
+  padding: 20px;
+}
+
+.editors img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  margin: 0 auto;
+}
+
 
 /* blog.html */
 

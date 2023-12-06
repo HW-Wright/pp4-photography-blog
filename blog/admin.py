@@ -17,3 +17,8 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('post', 'created_by', 'comment_content', 'date_created')
     list_filter = ('post', 'date_created')
     search_fields = ('post', 'created_by')
+
+@admin.register(Editor)
+class EditorAdmin(admin.ModelAdmin):
+
+    list_display = ('name', 'one_line_bio')
