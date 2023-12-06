@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Post, Comment
+from .models import Post, Comment, Editor, UserProfile
 from .forms import CommentForm, PostForm, EditForm, DeleteForm
 
 
@@ -18,6 +18,13 @@ class FeaturedPosts(generic.ListView):
     liked_posts = Post.objects.annotate(likes_count=Count('likes'))
     queryset = liked_posts.order_by('-likes_count')[:3]
     template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        context= super().get_context_data(**kwargs)
+
+        context['editors'] = Editor.objects.all()
+
+        return context
 
 
 

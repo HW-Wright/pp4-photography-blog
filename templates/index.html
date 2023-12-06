@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<section>
     <!-- Bootstrap Clean Blog Theme -->
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -26,7 +27,21 @@
             </div>
         </div>
     </div>
+</section>
 
+<section id="editors">
+    <div class="container">
+        {% for editor in editors_list %}
+            <div class="col">
+                <img src="{{ editor.image.url }}" alt="post_image">
+                <span class="badge badge-primary">{{ editor.name }}</span>
+                <p>{{ editor.one_line_bio }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section>
     {% if user.is_authenticated %}
         <div class="add-post">
             <a href="{% url 'add' %}"><button type="" class="btn btn-danger add-post">Add Post</button></a>
@@ -37,6 +52,7 @@
                 <a class="link2" href="{% url 'account_signup' %}">create an account</a> to create a post.</h6>
             </div>
     {% endif %}
+</section>
 
 
 {% endblock %}
