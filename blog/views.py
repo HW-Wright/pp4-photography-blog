@@ -1,3 +1,5 @@
+import re
+from django.db.models import Count
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView
@@ -13,42 +15,11 @@ from .forms import CommentForm, PostForm, EditForm
 
 class FeaturedPosts(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=True).order_by('-date_created')[:3]
+    liked_posts = Post.objects.annotate(likes_count=Count('likes'))
+    queryset = liked_posts.order_by('-likes_count')[:3]
     template_name = 'index.html'
 
 
-# class EditComment(LoginRequiredMixin, generic.UpdateView):
-#     model = Comment
-#     template_name = 'edit_comment.html'
-#     form_class = CommentForm
-
-#     def post(self, request, slug, *args, **kwargs):
-#         queryset = Post.objects.filter(status=True)
-#         post = get_object_or_404(queryset, slug=slug)
-#         comments = post.photo_comment.order_by("date_created")
-#         liked = False
-#         if post.likes.filter(id=self.request.user.id).exists():
-#             liked = True
-
-#         comment_form = CommentForm(data=request.POST)
-#         if comment_form.is_valid():
-#             comment = comment_form.save(commit=False)
-#             comment.created_by = request.user
-#             comment.post = post
-#             comment.save()
-#         else:
-#             comment_form = CommentForm()
-
-#         return render(
-#             request,
-#             "specific_post.html",
-#             {
-#                 "post": post,
-#                 "comments": comments,
-#                 "comment_form": CommentForm(),
-#                 "liked": liked
-#             },
-#         )
 
 class SpecificPost(View):
 
@@ -93,16 +64,8 @@ class SpecificPost(View):
         else:
             comment_form = CommentForm()
 
-        return render(
-            request,
-            "specific_post.html",
-            {
-                "post": post,
-                "comments": comments,
-                "comment_form": CommentForm(),
-                "liked": liked
-            },
-        )
+        return redirect('specific_post', slug=slug)
+
 
 
 class LikePost(LoginRequiredMixin, View):
@@ -152,7 +115,8 @@ def add_post(request):
             new_post = form.save(commit=False)
             new_post.created_by = request.user
             new_slug = new_post.title.lower()
-            new_post.slug = new_slug.replace(" ", "-")
+            new_slug2 = re.sub(r'[^\w]', ' ', new_slug)
+            new_post.slug = new_slug2.replace(" ", "-")
             new_post = form.save()
             return redirect('homepage')
         else:

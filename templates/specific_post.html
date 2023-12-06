@@ -46,7 +46,7 @@
                                 <div class="specific-comment">
                                     {% if user.is_authenticated and user == comment.created_by %}
                                         <p id="comment-author">{{ comment.created_by }}:</p>
-                                        <a href="{% url 'delete_comment' comment.id %}"><i class="fa-solid fa-circle-xmark btn btn-danger"><button type="" class="btn btn-danger"></button></i></a><span id="comment">{{ comment.comment_content }}</span>
+                                        <a href="{% url 'delete_comment' comment.id %}"><i class="fa-solid fa-circle-xmark btn btn-danger"></i></a><span id="comment">{{ comment.comment_content }}</span>
                                         {% else %}
                                             <p id="comment-author">{{ comment.created_by }}:</p>
                                             <p id="comment">{{ comment.comment_content }}</p>
