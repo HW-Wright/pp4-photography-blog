@@ -1,5 +1,6 @@
 from . import views
 from django.urls import path
+from django.conf.urls import handler403, handler404, handler500
 
 urlpatterns = [
     path('', views.FeaturedPosts.as_view(), name='homepage'),
@@ -11,3 +12,9 @@ urlpatterns = [
     path('delete/<slug:slug>', views.delete_post, name='delete_post'),
     path('specific_post/<slug:slug>', views.SpecificPost.as_view(), name='specific_post')
 ]
+
+"""cCustom Error page handlers"""
+
+handler403 = 'blog.views.handle403'
+handler404 = 'blog.views.handle404'
+handler500 = 'blog.views.handle500'

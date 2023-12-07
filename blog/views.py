@@ -163,3 +163,17 @@ def delete_comment(request, comment_id, slug):
         comment.delete()
 
     return redirect('specific_post', slug=slug)
+
+
+"""All views beloe are to render custom error pages in the browser"""
+
+def handle404(request, exeption):
+    return render(request, '404.html', status=404)
+
+
+def handle403(request, exeption):
+    return render(request, '403.html', status=403)
+
+
+def handle500(request):
+    return render(request, '500.html', status=500)
