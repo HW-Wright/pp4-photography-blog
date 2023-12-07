@@ -3,13 +3,13 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
+<section>
 <div class="container">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
             <h3 class="sign">Create your post</h3>
                 {% if user.is_authenticated %}
-                    <form method="POST" enctype="multipart/form-data" class="post-form">
+                    <form method="POST" enctype="multipart/form-data" class="post-form" aria-labelledby="createPost">
                         {% csrf_token %}
                         {{ form.as_p }}
                         <div>
@@ -20,12 +20,12 @@
                     </form>
                     {% else %}
                         <div>
-                            <h6 class="add-post">Please <a class="link2" href="{% url 'account_login' %}">log in</a>, or 
-                            <a class="link2" href="{% url 'account_signup' %}">create an account</a> to create a post.</h6>
+                            <h6 class="add-post">Please <a class="link2" href="{% url 'account_login' %}" aria-label="Log in to your account">log in</a>, or 
+                            <a class="link2" href="{% url 'account_signup' %}" aria-label="Create your account">create an account</a> to create a post.</h6>
                         </div>
                 {% endif %}
         </div>
     </div>
 </div>
-
+</section>
 {% endblock %}

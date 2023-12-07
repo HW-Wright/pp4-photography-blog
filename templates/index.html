@@ -11,11 +11,11 @@
                     {% for post in post_list %}
                     <div class="thumbnail">
                     {% if post.status == True %}
-                        <a href="{% url 'specific_post' post.slug %}" id="hover">
                         <div>
-                            <span class="title">{{ post.title }}</span> <span class="author">From: {{ post.created_by }}</span>
-                            <div class="image"><img src="{{ post.image.url }}" alt="post_image"></div>
-                        </a>
+                            <a href="{% url 'specific_post' post.slug %}" id="hover"></a>
+                                <span class="title">{{ post.title }}</span> <span class="author">From: {{ post.created_by }}</span>
+                                <div class="image"><img src="{{ post.image.url }}" alt="post_image"></div>
+                            </a>
                             <div class="captionPreview">{{ post.caption }}</div>
                             <div><i class="fa-solid fa-heart likes"></i><span class="likes"> {{ post.likes_count }}</span></div>
                             <span class="location">{{ post.location }}</span> - <span class="date">{{ post.date_created }}</span>
@@ -45,12 +45,12 @@
 <section>
     {% if user.is_authenticated %}
         <div class="add-post">
-            <a href="{% url 'add' %}"><button type="" class="btn btn-danger add-post">Add Post</button></a>
+            <a href="{% url 'add' %}"><button type="" class="btn btn-danger add-post" aria-label="Add Post">Add Post</button></a>
         </div>
         {% else %}
             <div>
-                <h6 class="add-post">Please <a class="link2" href="{% url 'account_login' %}">log in</a>, or 
-                <a class="link2" href="{% url 'account_signup' %}">create an account</a> to create a post.</h6>
+                <h6 class="add-post">Please <a class="link2" href="{% url 'account_login' %}" aria-label="Log in to your account">log in</a>, or 
+                <a class="link2" href="{% url 'account_signup' %}" aria-label="Create your account">create an account</a> to create a post.</h6>
             </div>
     {% endif %}
 </section>

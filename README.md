@@ -26,6 +26,10 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - As a verified user, I want my posts and my comments to be editable or deletable, only by me and site admins.
 - As a verified user, I want to log in and log out of the site with ease.
 
+### Development Plan
+- This project was organized and executed using Agile methodology. To facilitate this, a Kanban board within GitHub Projects was utilized, with tasks and objectives managed through interconnected GitHub Issues.
+[Link to the Kanban Board here](https://github.com/users/blahblahblah589/projects/2)
+
 ### Features
 ----------------------------
 #### Existing Features
@@ -63,7 +67,9 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - Each link is presented as a FontAwesome icon of each company.
 #### Features to be added
 - In the future I would like to add a drafts page for verified users, to view the unpublished saved posts that they have created.
-- In the future I would like to add the ability for users with a certain amount of points, (as determined by the UserProfile model), to have some form of a 'super-like' functionality. Where they can like and star/emoji a post.
+- In the future I would like to add the ability for users with a certain amount of points, (as determined by the UserProfile model), to have some form of a 'super-like' functionality. Where they can like and star/emoji a post, I belive this would be a sufficient feature to entice user return.
+- Direct links to post authors socal media accounts from the post.
+- An embeded Google Maps API that could show you roughly where the picture was taken, if the post auther so choses.
 
 ### Design
 ----------------------------
@@ -87,9 +93,93 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - ![Specific post](/documentation/readme-images/specific-post-pp4.jpeg)
 - The comment section of this page is different for verified and non-verified users, the former having the ability to contribute.
 - ![Verified comment section](/documentation/readme-images/comment-section-verified-pp4.jpeg)
-- ![Unverified comment section](/documentation/readme-images/comment-section-unverified-pp4.jpeg)
+- ![Unverified comment section](/documentation/readme-images/unverified-comment-section-pp4.jpeg)
+##### add_post.html
+- Add post uses crispy forms to generate a the PostForm, which consists of several input fields.
+- ![Add post](/documentation/readme-images/create-post-pp4.jpeg)
+##### delete_post.html
+- This page acts as a confirmation for the desired outcome.
+-![Delete post](/documentation/readme-images/delete-post.jpeg)
+#### Color Scheme
+- The colour scheme was decided upon for the sake of constrast, red and black was the initial design choice but I amended the background colour gradiend to rgb(171,53,16) so that the hero image remained consistent with site background.
+
+### Wireframes
+----------------------------
+- My handdrawn wireframes provided a sufficient design model to work from, from the very beggining of the project. So much so that very little has changed from the original design to the live project.
+-![index.html-wireframe-pp4]()
+-![blog.html-wiregrame-pp4]()
+-![specific-post.html-wireframe-pp4]()
+-![add_post.html-wireframe-pp4]()
+
+### Model Design
+----------------------------
+- Along with the Django User model, and the Post and Comment models that are heavily influenced by the walkthrough project, my project has two custom models. 'UserProfile' and 'Editor'. 
+- Entity Relationship Diagram - UserProfile:
+-![ERD - UserProfile](/documentation/readme-images/userprofile-pp4.jpeg)
+- Entity Relationship Diagram - Editor:
+-![ERD - Editor](/documentation/readme-images/editor-pp4.jpeg)
+- Entity Relationship Diagram - Post:
+-![ERD - Post](/documentation/readme-images/post-model-pp4.jpeg)
+- Entity Relationship Diagram - Comment:
+-![ERD - Comment](/documentation/readme-images/comment-model-pp4.jpeg)
 
 
+## Testing
+### Automated Testing
+----------------------------
+- All tests in the t'test_forms.py', 'test_views.py', test_models.py' pass with no errors.
+-![Automated testing](/documentation/readme-images/auto-testing-pp4.jpeg)
 
+### Additional Testing
+----------------------------
+- I have tested that this site works on macOS (Ventura 13.2).
+- I have tested that this site works on Chrome, Safari, and Brave browsers.
+- I have tested that this site works and responds to a mobile devise (iPhone 13 Pro).
+- All external links open in a new tab.
+- The add post form generates a new post in the blog.
+- The comment form refreshes the page with the new comment.
+- The like button refreshes the page with an updated like count.
+- Deleting a comment refreshes the page with the comment removed, and the option to do so is only available to the comment creator.
+- Each post can be updated and deleted, and the option is only available to the post creator.
+- Signing out works as desired, the user can no longer engage with the posts or comments, simply view.
+- Signing up to the site sucessfully creates a user instance in the Django user model.
+- The site is fully responsive from 400pc vw to 2500vw.
 
+### Validators
+----------------------------
 
+### Performance and Accesibility
+----------------------------
+
+## Technologies Used
+- HTML5
+- CSS3
+- Python3
+- Django
+- CrispyForms
+- ElephantSQL
+- Heroku
+- Boostrap
+- Gunicorn
+- Cloudinary
+- FontAwesome
+- Google Fonts
+
+## Deployment and Setup
+### This Project was deployed to Heroku using the steps below
+----------------------------
+- 
+### The media in this project was stored using Cloudinary, following the steps below
+----------------------------
+-
+### ElephantSQL was used for this project and set up using the steps below
+----------------------------
+- 
+
+## Credits
+### Content
+----------------------------
+### Media
+----------------------------
+
+## Acknowledgments

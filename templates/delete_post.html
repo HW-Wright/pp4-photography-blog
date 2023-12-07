@@ -3,6 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<section>
     <div class="container">
         <div class="row">
             <div class="col-md-8 mt-3 offset-md-2">
@@ -18,7 +19,7 @@
                     {{ form.as_p }}
                     <div>
                         <p>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger" aria-label="Confirm delete post">Delete</button>
                         </p>
                     </div>
                 </form>
@@ -26,4 +27,5 @@
             </div>
         </div>
     </div>
+</section>
 {% endblock content %}

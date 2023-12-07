@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<section>
 <div class="container">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
             <h4 class="sign">Error 404: Page Not Found</h4>
             <div>
-                <a href="{% url 'homepage' %}" class="btn btn-danger">Home</a>
+                <a href="{% url 'homepage' %}" class="btn btn-danger" aria-label="Return to homepage">Home</a>
             </div>
         </div>
     </div>
 </div>
+</section>
 {% endblock %}

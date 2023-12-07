@@ -19,14 +19,14 @@
                         {{ form.as_p }}
                         <div>
                             <p>
-                                <button type="submit" class="btn btn-danger">Update Your Post</button>
+                                <button type="submit" class="btn btn-danger" aria-label="Update your post">Update Your Post</button>
                             </p>
                         </div>
                     </form>
                     {% else %}
                         <div>
-                            <h6 class="add-post">Please <a class="link2" href="{% url 'account_login' %}">log in</a>, or 
-                            <a class="link2" href="{% url 'account_signup' %}">create an account</a> to create a post.</h6>
+                            <h6 class="add-post">Please <a class="link2" href="{% url 'account_login' %}" aria-label="Log in to your account">log in</a>, or 
+                            <a class="link2" href="{% url 'account_signup' %}" aria-label="Create your account">create an account</a> to create a post.</h6>
                         </div>
                 {% endif %}
         </div>

@@ -25,11 +25,11 @@
                             <form action="{% url 'post_like' post.slug %}" method="POST">
                                 {% csrf_token %}
                                 {% if liked %}
-                                <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like">
+                                <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like" aria-label="Unlike this post">
                                     <i class="fa-solid fa-heart liked"> {{ post.likes_count }}</i>
                                 </button>
                                 {% else %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like">
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like" aria-label="Like this post">
                                     <i class="fa-solid fa-heart unliked"> {{ post.likes_count }}</i>
                                 </button>
                                 {% endif %}
@@ -69,10 +69,10 @@
 
                         {% if user.is_authenticated and user == post.created_by %}
                             <div class="edit-post">
-                                <a href="{% url 'edit' post.slug %}"><button type="" class="btn btn-danger">Edit This Post</button></a>
+                                <a href="{% url 'edit' post.slug %}"><button type="" class="btn btn-danger" aria-label="Edit Post">Edit This Post</button></a>
                             </div>
                             <div class="edit-post">
-                                <a href="{% url 'delete_post' post.slug %}"><button type="" class="btn btn-danger">Delete This Post</button></a>
+                                <a href="{% url 'delete_post' post.slug %}"><button type="" class="btn btn-danger" aria-label="Delete Post">Delete This Post</button></a>
                             </div>
                         {% endif %}
                     </div>
