@@ -12,10 +12,10 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - As a first time visitor, I want to be able navigate the site intuitively.
 - As a first time visitor, I want all of the above to be true, regardless of screen size.
 #### Returning Visitor Goals
-- As a returning time visitor, I want to be able to view the conversations through the comments that are happening underneath the posts.
+- As a returning visitor, I want to be able to view the conversations through the comments that are happening underneath the posts.
 - As a returning visitor, I want to easily find the page or section that I am looking for.
 #### Frequent Visitor Goals
-- As a frequent visitor, I want to be able to easily discern the post authors from one another so that I may find the user whom's style I enjoy.
+- As a frequent visitor, I want to be able to easily discern the post authors from one another so that I may find the user who's style I enjoy.
 - As a frequent visitor, I want to easily be able to sign up to use the site's full list of features.
 #### Verified User Goals
 - As a verified user, I want to easily be able to comment on a post.
@@ -23,7 +23,7 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - As a verified user, I want to be able to upload a post and join the community.
 - As a verified user, I want to be able to amend the post for any errors or mistakes.
 - As a verified user, I want to easily be able to remove a post if I so choose.
-- As a verified user, I want my posts and my comments to be editable or deletable, only by me and site admins.
+- As a verified user, I want my posts and my comments to be editable or removable, only by me and site admins.
 - As a verified user, I want to log in and log out of the site with ease.
 
 ### Development Plan
@@ -41,20 +41,20 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - The Hero Image, replicated along all pages of the site, depicts photography in action. 
 - The header and the subheading overlay the hero image and are also replicated on all site pages
 #### index.html
-- The site hompage, rendered by the 'index.html' template, contains three sections. 
+- The site homepage, rendered by the 'index.html' template, contains three sections. 
 - The first section shows the three most liked posts on the site at the current time. Here, each post contains the post title, post author, a reduced size version of the post image, the authors caption to the post, how many likes each post has received, along with the location and upload timestamp. All information here is populated my Django from the Post model.
-- The second section shows a list of site admins, each with a picture, thier name and a short message for the user. The list is displayed as blocks and is populated by Django from the Editor model.
+- The second section shows a list of site admins, each with a picture, their name and a short message for the user. The list is displayed as blocks and is populated by Django from the Editor model.
 - The final section of the homepage is a call to action for both verified and non-verified users. If the user is verified, a button will be present to take the user to the AddPost form on 'add_post.html'. If the user is not verified, links will be provided to either log in at 'login.html' or to create an account with the site at 'signup.html'.
 #### blog.html
 - This page will be populated with every row in the Post model by Django, in order of date created, newer posts appearing at the top.
-- Said blog posts will sit inline in rows off three, with any incomplete rows being centered. These blog thumnails contain all the same information as on index.html, but each takes up a smaller section of the page, given that there is far more of them here.
+- Said blog posts will sit inline in rows off three, with any incomplete rows being centred. These blog thubmnails contain all the same information as on index.html, but each takes up a smaller section of the page, given that there is far more of them here.
 - Just like on index.html, the final section of the blog page is a call to action for both verified and non-verified users. If the user is verified, a button will be present to take the user to the AddPost form on 'add_post.html'. If the user is not verified, links will be provided to either log in at 'login.html' or to create an account with the site at 'signup.html'.
 #### specific_post.html
-- Here we come to the main purpose of the site, a display of a singluar blog post but a single user. All of the same information is provided as in index.html and blog.html. However, the display is occupying the majority of the viewport to really showcase the image in display.
+- Here we come to the main purpose of the site, a display of a singular blog post but a single user. All of the same information is provided as in index.html and blog.html. However, the display is occupying the majority of the viewport to really showcase the image in display.
 - This page is where the verified users will get to engage with one another via comments and likes.
 - The like icon, unlike in index.html and blog.html, is an interactive button for verified users to like the post. Upon clicking this FontAwesome icon, the page with quickly refresh and display the icon in red.
-- The comment secion is displayed for all users, however, the ability to add a comment is soley for verified users. In cases where the user is not verified, links will be provided to either log in at 'login.html' or to create an account with the site at 'signup.html'. If the user is verified they will be able to enter a comment in the provided text area and submit. At this time, the page will again, refresh and display the comment, now with an icon to delete. this icon will take the user to the 'edit_comment.html' template where they can confirm their choice. The user will not be able to edit the comment content so that the flow of conversation cannot be altered after the fact. This option is, of course, not available if the logged in user is not the author of the comment. 
-- In cases where a verified user is viewing thier own post, the template will render two significant options below the comments secion. The first of which will be a button link to edit the post, upon submission, the user will be taken to the EditForm displayed on 'edit_post.html' template. Here the user is free to edit the title, caption, location, and status of the post. The slug is not an ediable field because it must always match the title. I have chosen not to allow users to change the image that defines thier post. This decision was made to ensure that no other users' comments would be underneath an imge that they did not see when writing said comment.
+- The comment section is displayed for all users, however, the ability to add a comment is solely for verified users. In cases where the user is not verified, links will be provided to either log in at 'login.html' or to create an account with the site at 'signup.html'. If the user is verified, they will be able to enter a comment in the provided text area and submit. At this time, the page will again, refresh and display the comment, now with an icon to delete. this icon will take the user to the 'edit_comment.html' template where they can confirm their choice. The user will not be able to edit the comment content so that the flow of conversation cannot be altered after the fact. This option is, of course, not available if the logged in user is not the author of the comment. 
+- In cases where a verified user is viewing their own post, the template will render two significant options below the comments section. The first of which will be a button link to edit the post, upon submission, the user will be taken to the EditForm displayed on 'edit_post.html' template. Here the user is free to edit the title, caption, location, and status of the post. The slug is not an editable field because it must always match the title. I have chosen not to allow users to change the image that defines their post. This decision was made to ensure that no other users' comments would be underneath an image that they did not see when writing said comment.
 #### login.html
 - The standard login form template from Django is styles to match the look of the rest of the site. It requests a username and a password, with the option to remember the login.
 #### signup.html
@@ -67,9 +67,9 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - Each link is presented as a FontAwesome icon of each company.
 #### Features to be added
 - In the future I would like to add a drafts page for verified users, to view the unpublished saved posts that they have created.
-- In the future I would like to add the ability for users with a certain amount of points, (as determined by the UserProfile model), to have some form of a 'super-like' functionality. Where they can like and star/emoji a post, I belive this would be a sufficient feature to entice user return.
-- Direct links to post authors socal media accounts from the post.
-- An embeded Google Maps API that could show you roughly where the picture was taken, if the post auther so choses.
+- In the future I would like to add the ability for users with a certain amount of points, (as determined by the UserProfile model), to have some form of a 'super-like' functionality. Where they can like and star/emoji a post, I believe this would be a sufficient feature to entice user return.
+- Direct links to post authors social media accounts from the post.
+- An embedded Google Maps API that could show you roughly where the picture was taken, if the post auther so choses.
 
 ### Design
 ----------------------------
@@ -101,11 +101,11 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - This page acts as a confirmation for the desired outcome.
 - ![Delete post](/documentation/readme-images/delete-post.jpeg)
 #### Color Scheme
-- The colour scheme was decided upon for the sake of constrast, red and black was the initial design choice but I amended the background colour gradiend to rgb(171,53,16) so that the hero image remained consistent with site background.
+- The colour scheme was decided upon for the sake of contrast, red and black was the initial design choice but I amended the background colour gradient to rgb(171,53,16) so that the hero image remained consistent with site background.
 
 ### Wireframes
 ----------------------------
-- My handdrawn wireframes provided a sufficient design model to work from, from the very beggining of the project. So much so that very little has changed from the original design to the live project.
+- My hand drawn wireframes provided a sufficient design model to work from, from the very beginning of the project. So much so that very little has changed from the original design to the live project.
 - ![index.html-wireframe-pp4](/documentation/readme-images/wireframe2-pp4.jpeg)
 - ![blog.html-wiregrame-pp4](/documentation/readme-images/wireframe1-pp4.jpeg)
 - ![specific-post.html-wireframe-pp4](/documentation/readme-images/wireframe3-pp4.jpeg)
@@ -127,7 +127,7 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 ## Testing
 ### Automated Testing
 ----------------------------
-- All tests in the t'test_forms.py', 'test_views.py', test_models.py' pass with no errors.
+- All tests in the 'test_forms.py', 'test_views.py', test_models.py' pass with no errors.
 - ![Automated testing](/documentation/readme-images/auto-testing-pp4.jpeg)
 
 ### Additional Testing
@@ -142,12 +142,12 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - Deleting a comment refreshes the page with the comment removed, and the option to do so is only available to the comment creator.
 - Each post can be updated and deleted, and the option is only available to the post creator.
 - Signing out works as desired, the user can no longer engage with the posts or comments, simply view.
-- Signing up to the site sucessfully creates a user instance in the Django user model.
+- Signing up to the site successfully creates a user instance in the Django user model.
 - The site is fully responsive from 400pc vw to 2500vw.
 
 ### Validators
 ----------------------------
-- The CSS in this projject was validated with no errors.
+- The CSS in this project was validated with no errors.
 - ![CSS validation](/documentation/readme-images/css-validator-pp4.jpeg)
 - The HTML in this project was validated with no errors:
 - ![index.html validation](/documentation/readme-images/index.html-validator-pp4.png)
@@ -158,10 +158,10 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - ![delete_post.html validation](/documentation/readme-images/delete_post.html-validator-pp4.png)
 - Python Code passed CI validator.
 
-### Performance and Accesibility
+### Performance and Accessibility
 ----------------------------
 #### Lighthouse
-- ![Lightouse score](/documentation/readme-images/lighthouse-pp4.png)
+- ![Lighthouse score](/documentation/readme-images/lighthouse-pp4.png)
 
 ## Technologies Used
 - HTML5
@@ -181,7 +181,7 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 ### This Project was deployed to Heroku
 ----------------------------
 - ![Heroku app](/documentation/readme-images/heroku-pp4.png)
-- The below congig vars are required:
+- The below config vars are required:
 - ![Config vars](/documentation/readme-images/config-vars-pp4.png)
 - The below buildpacks are required:
 - ![Buildpacks](/documentation/readme-images/heroku-buildbacks-pp4.png)
@@ -195,9 +195,9 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 ## Credits
 ### Content
 ----------------------------
-- Boostrap's clean blog thmese was used as a basis for the besign layout of this project. The usage of this has been clearly labelled in the HTML and CSS.
-- The Post and Comment models are heavily influenced by the like models inthe walkthrough project.
-- The views that enable comment and like functionality are heavily influenced by the walkthough project.
+- Bootstrap's clean blog theme was used as a basis for the design layout of this project. The usage of this has been clearly labelled in the HTML and CSS.
+- The Post and Comment models are heavily influenced by the like models in the walkthrough project.
+- The views that enable comment and like functionality are heavily influenced by the walkthrough project.
 
 ### Media
 ----------------------------
@@ -207,4 +207,4 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 
 ## Acknowledgments
 Brian Macharia, my Code Institue mentor.
-The student support systems at Code Institute, particularly the tutors. 
+The student support systems at Code Institute, particularly the tutors.
