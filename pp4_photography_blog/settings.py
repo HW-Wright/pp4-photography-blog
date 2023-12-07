@@ -30,6 +30,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ALLOWED_HOSTS = [
     'pp4-photography-blog-dfac9ff0d622.herokuapp.com',
     'pp4-photography-blog.herokuapp.com',
