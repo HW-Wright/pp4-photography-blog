@@ -156,6 +156,7 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - ![edit_post.html validation](/documentation/readme-images/edit_post.html-validator-pp4.png)
 - ![add_post.html validation](/documentation/readme-images/add_post.html-validator-pp4.png)
 - ![delete_post.html validation](/documentation/readme-images/delete_post.html-validator-pp4.png)
+- Python Code passed CI validator.
 
 ### Performance and Accesibility
 ----------------------------
@@ -206,4 +207,4 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 
 ## Acknowledgments
 Brian Macharia, my Code Institue mentor.
-The student support systems at Code Institute particularly the tutors. 
+The student support systems at Code Institute, particularly the tutors. 
