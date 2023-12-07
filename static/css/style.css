@@ -69,6 +69,14 @@ body {
   color: #fff;
 }
 
+.add-post-btn {
+  color: #fff;
+}
+
+.add-post-btn:hover {
+  color: #952c0c;
+}
+
 .editors-section {
   text-align: center;
 }
@@ -83,7 +91,7 @@ body {
   display: inline;
   text-align: center;
   color: #fff;
-  padding: 20px;
+  padding: 5px;
 }
 
 .editors img {
@@ -161,6 +169,11 @@ body {
   margin: 0 auto;
   text-align: center;
   padding-bottom: 5px;
+  color: #fff
+}
+
+.add-post:hover {
+  color: #952c0c;
 }
 
 /* specific_post.html */

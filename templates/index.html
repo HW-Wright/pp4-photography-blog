@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section>
     <!-- Bootstrap Clean Blog Theme -->
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -12,7 +11,7 @@
                     <div class="thumbnail">
                     {% if post.status == True %}
                         <div>
-                            <a href="{% url 'specific_post' post.slug %}" id="hover"></a>
+                            <a href="{% url 'specific_post' post.slug %}">
                                 <span class="title">{{ post.title }}</span> <span class="author">From: {{ post.created_by }}</span>
                                 <div class="image"><img src="{{ post.image.url }}" alt="post_image"></div>
                             </a>
@@ -27,17 +26,16 @@
             </div>
         </div>
     </div>
-</section>
 
 <section id="editors">    
     <h4 class="team">Meet the Team!</h4>
     <div class="editors-section">
         {% for editor in editors %}
-            <span class="editors">
+            <div class="editors">
                 <img src="{{ editor.photo.url }}" alt="post_image">
-                <div class="">{{ editor.name }}</div>
-                <div>"{{ editor.one_line_bio }}"</div>
-            </span>
+                <p>{{ editor.name }}</p>
+                <p>"{{ editor.one_line_bio }}"</p>
+            </div>
         {% endfor %}
     </div>
 </section>
@@ -45,7 +43,7 @@
 <section>
     {% if user.is_authenticated %}
         <div class="add-post">
-            <a href="{% url 'add' %}"><button type="" class="btn btn-danger add-post" aria-label="Add Post">Add Post</button></a>
+            <a href="{% url 'add' %}" class="btn btn-danger add-post" aria-label="Add Post">Add Post</a>
         </div>
         {% else %}
             <div>

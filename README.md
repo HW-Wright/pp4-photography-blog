@@ -147,9 +147,20 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 
 ### Validators
 ----------------------------
+- The CSS in this projject was validated with no errors.
+![CSS validation](/documentation/readme-images/css-validator-pp4.jpeg)
+- The HTML in this project was validated with no errors:
+-![index.html validation](/documentation/readme-images/index.html-validator-pp4.png)
+-![blog.html validation](/documentation/readme-images/blog.html-validator-pp4.png)
+-![specific_post.html validation](/documentation/readme-images/specific_post.html-validator-pp4.png)
+-![edit_post.html validation](/documentation/readme-images/edit_post.html-validator-pp4.png)
+-![add_post.html validation](/documentation/readme-images/add_post.html-validator-pp4.png)
+-![delete_post.html validation](/documentation/readme-images/delete_post.html-validator-pp4.png)
 
 ### Performance and Accesibility
 ----------------------------
+#### Lighthouse
+-![Lightouse score](/documentation/readme-images/lighthouse-pp4.png)
 
 ## Technologies Used
 - HTML5
@@ -179,7 +190,16 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 ## Credits
 ### Content
 ----------------------------
+- Boostrap's clean blog thmese was used as a basis for the besign layout of this project. The usage of this has been clearly labelled in the HTML and CSS.
+- The Post and Comment models are heavily influenced by the like models inthe walkthrough project.
+- The views that enable comment and like functionality are heavily influenced by the walkthough project.
+
 ### Media
 ----------------------------
+- The Hero Image was taken from Unsplash, stock image site.
+- The Editor photos were generated using MidJourney.
+- All other images are my own.
 
 ## Acknowledgments
+Brian Macharia, my Code Institue mentor.
+The student support systems at Code Institute particularly the tutors. 

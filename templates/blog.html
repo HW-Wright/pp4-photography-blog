@@ -5,11 +5,11 @@
     {% for post in post_list %}
         <div class="blog-thumbnail">
         {% if post.status == True %}
-            <a href="{% url 'specific_post' post.slug %}">
             <div>
-                <span class="title">{{ post.title }}</span> <span class="author">From: {{ post.created_by }}</span>
-                <div class="image"><img src="{{ post.image.url }}" alt="post_image"></div>
-            </a>
+                <a href="{% url 'specific_post' post.slug %}">
+                    <span class="title">{{ post.title }}</span> <span class="author">From: {{ post.created_by }}</span>
+                    <div class="image"><img src="{{ post.image.url }}" alt="post_image"></div>
+                </a>
                 <div class="captionPreview">{{ post.caption }}</div>
                 <div><i class="fa-solid fa-heart likes"></i><span class="likes"> {{ post.likes_count }}</span></div>
                 <span class="location">{{ post.location }}</span> - <span class="date">{{ post.date_created }}</span>
@@ -17,13 +17,12 @@
         {% endif %}
         </div>
     {% endfor %}
-        </div>
 </div>
 
 
 {% if user.is_authenticated %}
     <div class="add-post">
-        <a href="{% url 'add' %}"><button type="" class="btn btn-danger add-post">Add Post</button></a>
+        <a href="{% url 'add' %}" class="btn btn-danger add-post" aria-label="Add Post">Add Post</a>
     </div>
     {% else %}
         <div>

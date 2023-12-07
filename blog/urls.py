@@ -13,7 +13,7 @@ urlpatterns = [
     path('specific_post/<slug:slug>', views.SpecificPost.as_view(), name='specific_post')
 ]
 
-"""cCustom Error page handlers"""
+"""Custom Error page handlers"""
 
 handler403 = 'blog.views.handle403'
 handler404 = 'blog.views.handle404'

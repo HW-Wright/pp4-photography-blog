@@ -4,82 +4,86 @@
 
 {% block content %}
 
+
+<article>
 <!-- Bootstrap Clean Blog Theme -->
-<article class="mb-4">
+<div class="mb-4">
     <div class="container px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
 
-                <!-- Custom Code -->
-                <div class="full-post">
-                    <div>
-                        <h2 class="full-title">{{ post.title }}</h2> <span class="author">From: {{ post.created_by }}</span>
+                    <!-- Custom Code -->
+                    <div class="full-post">
+                        <div>
+                            <h2 class="full-title">{{ post.title }}</h2> <span class="author">From: {{ post.created_by }}</span>
 
-                        <div class="full-image"><img src="{{ post.image.url }}" alt="post_image"></div>
+                            <div class="full-image"><img src="{{ post.image.url }}" alt="post_image"></div>
 
-                        <p class="full-caption">{{ post.caption }}</p>
+                            <p class="full-caption">{{ post.caption }}</p>
 
-                        <span class="location">{{ post.location }}</span> - <span class="date">{{ post.date_created }}</span>
+                            <span class="location">{{ post.location }}</span> - <span class="date">{{ post.date_created }}</span>
 
-                        {% if user.is_authenticated %}
-                            <form action="{% url 'post_like' post.slug %}" method="POST">
-                                {% csrf_token %}
-                                {% if liked %}
-                                <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like" aria-label="Unlike this post">
-                                    <i class="fa-solid fa-heart liked"> {{ post.likes_count }}</i>
-                                </button>
-                                {% else %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like" aria-label="Like this post">
-                                    <i class="fa-solid fa-heart unliked"> {{ post.likes_count }}</i>
-                                </button>
-                                {% endif %}
-                            </form>
-                        {% else %}
-                                <div><i class="fa-regular fa-heart likes"></i><span class="likes"> {{ post.likes_count }}</span></div>
-                        {% endif %}
-                    </div>
-                    <div>
-                        <h5 class="comment-header">Comments:</h5>
-                        <div class="comment-section">
-                            {% for comment in comments %}
-                                <div class="specific-comment">
-                                    {% if user.is_authenticated and user == comment.created_by %}
-                                        <p id="comment-author">{{ comment.created_by }}:</p>
-                                        <a href="{% url 'delete_comment' comment.id post.slug %}"><i class="fa-solid fa-circle-xmark btn btn-danger"></i></a><span id="comment">{{ comment.comment_content }}</span>
-                                        {% else %}
-                                            <p id="comment-author">{{ comment.created_by }}:</p>
-                                            <p id="comment">{{ comment.comment_content }}</p>
-                                    {% endif %}
-                                </div>
-                            {% endfor %}
-                        </div>
-                        {% if user.is_authenticated %}
-                        <h5 class="comment-header">Add a comment as {{ user.username }}:</h5>
-                            <div>
-                                <form method="POST" class="comment-form">
-                                    {{ comment_form | crispy }}
+                            {% if user.is_authenticated %}
+                                <form action="{% url 'post_like' post.slug %}" method="POST">
                                     {% csrf_token %}
-                                    <button type="submit" class="btn btn-danger comment-btn">Submit</button>
+                                    {% if liked %}
+                                    <button type="submit" name="blogpost_id" value="{{ post.slug }}" class="btn-like" aria-label="Unlike this post">
+                                        <i class="fa-solid fa-heart liked"> {{ post.likes_count }}</i>
+                                    </button>
+                                    {% else %}
+                                    <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like" aria-label="Like this post">
+                                        <i class="fa-solid fa-heart unliked"> {{ post.likes_count }}</i>
+                                    </button>
+                                    {% endif %}
                                 </form>
-                        {% else %}
-                                <h6>Please <a class="link2" href="{% url 'account_login' %}">log in</a>, or 
-                                <a class="link2" href="{% url 'account_signup' %}">create an account</a> to leave comments and like posts.</h6>
+                            {% else %}
+                                    <div><i class="fa-regular fa-heart likes"></i><span class="likes"> {{ post.likes_count }}</span></div>
+                            {% endif %}
+                        </div>
+                        <div>
+                            <h5 class="comment-header">Comments:</h5>
+                            <div class="comment-section">
+                                {% for comment in comments %}
+                                    <div class="specific-comment">
+                                        {% if user.is_authenticated and user == comment.created_by %}
+                                            <p id="comment-author">{{ comment.created_by }}:</p>
+                                            <a href="{% url 'delete_comment' comment.id post.slug %}"><i class="fa-solid fa-circle-xmark btn btn-danger"></i></a><span id="comment">{{ comment.comment_content }}</span>
+                                            {% else %}
+                                                <p id="comment-author">{{ comment.created_by }}:</p>
+                                                <p id="comment">{{ comment.comment_content }}</p>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
                             </div>
-                        {% endif %}
+                            {% if user.is_authenticated %}
+                            <h5 class="comment-header">Add a comment as {{ user.username }}:</h5>
+                                <div>
+                                    <form method="POST" class="comment-form">
+                                        {{ comment_form | crispy }}
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-danger comment-btn">Submit</button>
+                                    </form>
+                            {% else %}
+                                    <h6>Please <a class="link2" href="{% url 'account_login' %}">log in</a>, or 
+                                    <a class="link2" href="{% url 'account_signup' %}">create an account</a> to leave comments and like posts.</h6>
+                                </div>
+                            {% endif %}
 
-                        {% if user.is_authenticated and user == post.created_by %}
-                            <div class="edit-post">
-                                <a href="{% url 'edit' post.slug %}"><button type="" class="btn btn-danger" aria-label="Edit Post">Edit This Post</button></a>
-                            </div>
-                            <div class="edit-post">
-                                <a href="{% url 'delete_post' post.slug %}"><button type="" class="btn btn-danger" aria-label="Delete Post">Delete This Post</button></a>
-                            </div>
-                        {% endif %}
+                            {% if user.is_authenticated and user == post.created_by %}
+                                <div class="edit-post">
+                                    <a href="{% url 'edit' post.slug %}" class="btn btn-danger" aria-label="Edit Post">Edit This Post</a>
+                                </div>
+                                <div class="edit-post">
+                                    <a href="{% url 'delete_post' post.slug %}" class="btn btn-danger" aria-label="Delete Post">Delete This Post</a>
+                                </div>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </article>
 
 {% endblock %}
