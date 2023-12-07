@@ -13,7 +13,7 @@ body {
     margin-bottom: 3rem;
     padding-top: 100px;
     padding-bottom: 8rem;
-    background-image: url('/static/images/hero-image-blog.jpeg');
+    background-image: url('https://res.cloudinary.com/ddixgr4v7/image/upload/v1701952206/wtqmau95chf5wvcgtaqu.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
