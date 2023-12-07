@@ -99,36 +99,36 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - ![Add post](/documentation/readme-images/create-post-pp4.jpeg)
 ##### delete_post.html
 - This page acts as a confirmation for the desired outcome.
--![Delete post](/documentation/readme-images/delete-post.jpeg)
+- ![Delete post](/documentation/readme-images/delete-post.jpeg)
 #### Color Scheme
 - The colour scheme was decided upon for the sake of constrast, red and black was the initial design choice but I amended the background colour gradiend to rgb(171,53,16) so that the hero image remained consistent with site background.
 
 ### Wireframes
 ----------------------------
 - My handdrawn wireframes provided a sufficient design model to work from, from the very beggining of the project. So much so that very little has changed from the original design to the live project.
--![index.html-wireframe-pp4]()
--![blog.html-wiregrame-pp4]()
--![specific-post.html-wireframe-pp4]()
--![add_post.html-wireframe-pp4]()
+- ![index.html-wireframe-pp4]()
+- ![blog.html-wiregrame-pp4]()
+- ![specific-post.html-wireframe-pp4]()
+- ![add_post.html-wireframe-pp4]()
 
 ### Model Design
 ----------------------------
 - Along with the Django User model, and the Post and Comment models that are heavily influenced by the walkthrough project, my project has two custom models. 'UserProfile' and 'Editor'. 
 - Entity Relationship Diagram - UserProfile:
--![ERD - UserProfile](/documentation/readme-images/userprofile-pp4.jpeg)
+- ![ERD - UserProfile](/documentation/readme-images/userprofile-pp4.jpeg)
 - Entity Relationship Diagram - Editor:
--![ERD - Editor](/documentation/readme-images/editor-pp4.jpeg)
+- ![ERD - Editor](/documentation/readme-images/editor-pp4.jpeg)
 - Entity Relationship Diagram - Post:
--![ERD - Post](/documentation/readme-images/post-model-pp4.jpeg)
+- ![ERD - Post](/documentation/readme-images/post-model-pp4.jpeg)
 - Entity Relationship Diagram - Comment:
--![ERD - Comment](/documentation/readme-images/comment-model-pp4.jpeg)
+- ![ERD - Comment](/documentation/readme-images/comment-model-pp4.jpeg)
 
 
 ## Testing
 ### Automated Testing
 ----------------------------
 - All tests in the t'test_forms.py', 'test_views.py', test_models.py' pass with no errors.
--![Automated testing](/documentation/readme-images/auto-testing-pp4.jpeg)
+- ![Automated testing](/documentation/readme-images/auto-testing-pp4.jpeg)
 
 ### Additional Testing
 ----------------------------
@@ -148,19 +148,19 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 ### Validators
 ----------------------------
 - The CSS in this projject was validated with no errors.
-![CSS validation](/documentation/readme-images/css-validator-pp4.jpeg)
+- ![CSS validation](/documentation/readme-images/css-validator-pp4.jpeg)
 - The HTML in this project was validated with no errors:
--![index.html validation](/documentation/readme-images/index.html-validator-pp4.png)
--![blog.html validation](/documentation/readme-images/blog.html-validator-pp4.png)
--![specific_post.html validation](/documentation/readme-images/specific_post.html-validator-pp4.png)
--![edit_post.html validation](/documentation/readme-images/edit_post.html-validator-pp4.png)
--![add_post.html validation](/documentation/readme-images/add_post.html-validator-pp4.png)
--![delete_post.html validation](/documentation/readme-images/delete_post.html-validator-pp4.png)
+- ![index.html validation](/documentation/readme-images/index.html-validator-pp4.png)
+- ![blog.html validation](/documentation/readme-images/blog.html-validator-pp4.png)
+- ![specific_post.html validation](/documentation/readme-images/specific_post.html-validator-pp4.png)
+- ![edit_post.html validation](/documentation/readme-images/edit_post.html-validator-pp4.png)
+- ![add_post.html validation](/documentation/readme-images/add_post.html-validator-pp4.png)
+- ![delete_post.html validation](/documentation/readme-images/delete_post.html-validator-pp4.png)
 
 ### Performance and Accesibility
 ----------------------------
 #### Lighthouse
--![Lightouse score](/documentation/readme-images/lighthouse-pp4.png)
+- ![Lightouse score](/documentation/readme-images/lighthouse-pp4.png)
 
 ## Technologies Used
 - HTML5
@@ -176,16 +176,20 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - FontAwesome
 - Google Fonts
 
-## Deployment and Setup
-### This Project was deployed to Heroku using the steps below
+## Deployment
+### This Project was deployed to Heroku
 ----------------------------
-- 
-### The media in this project was stored using Cloudinary, following the steps below
+- ![Heroku app](/documentation/readme-images/heroku-pp4.png)
+- The below congig vars are required:
+- ![Config vars](/documentation/readme-images/config-vars-pp4.png)
+- The below buildpacks are required:
+- ![Buildpacks](/documentation/readme-images/heroku-buildbacks-pp4.png)
+### The media in this project was stored using Cloudinary
 ----------------------------
--
+- ![Cloudinary](/documentation/readme-images/cloudinary-pp4.png)
 ### ElephantSQL was used for this project and set up using the steps below
 ----------------------------
-- 
+- ![ElephantSQL](/documentation/readme-images/elephantsql-pp3.png)
 
 ## Credits
 ### Content
