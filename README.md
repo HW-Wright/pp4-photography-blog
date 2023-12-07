@@ -63,4 +63,33 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 - Each link is presented as a FontAwesome icon of each company.
 #### Features to be added
 - In the future I would like to add a drafts page for verified users, to view the unpublished saved posts that they have created.
-- In the future I would like to add the ability for users with a certain amount of points, (as determined by the UserProfile model), to have some form of a 'super-like' functionality. Where they can like and star a post.
+- In the future I would like to add the ability for users with a certain amount of points, (as determined by the UserProfile model), to have some form of a 'super-like' functionality. Where they can like and star/emoji a post.
+
+### Design
+----------------------------
+#### Layout 
+##### base.html
+- Both the header and footer elements are replicated on all pages of the website.
+- ![Header element](/documentation/readme-images/header-pp4.jpeg)
+- ![Footer element](/documentation/readme-images/footer-pp4.jpeg)
+##### index.html
+- The site homepage lists the three most liked posts on the blog. As well as a list of the site admins. 
+- ![Featured post](/documentation/readme-images/featured-post-pp4.jpeg)
+- ![Admins](/documentation/readme-images/editor-section-pp4.jpeg)
+- Followed by a chance for verified users to add a post, and unverified users to sign in or create an account.
+- ![Add post button](/documentation/readme-images/add-post-pp4.jpeg)
+- ![Call to action](/documentation/readme-images/call-to-action-pp4.jpeg)
+##### blog.html
+- The main page of the site is the blog page, which shows all the published blog posts in a grid. Followed by a chance for verified users to add a post, and unverified users to sign in or create an account.
+- ![Blog](/documentation/readme-images/blog-pp4.jpeg)
+##### specific_post.html
+- The post page consists of the same details as the previous pages but one post per page.
+- ![Specific post](/documentation/readme-images/specific-post-pp4.jpeg)
+- The comment section of this page is different for verified and non-verified users, the former having the ability to contribute.
+- ![Verified comment section](/documentation/readme-images/comment-section-verified-pp4.jpeg)
+- ![Unverified comment section](/documentation/readme-images/comment-section-unverified-pp4.jpeg)
+
+
+
+
+

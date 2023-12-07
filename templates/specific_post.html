@@ -39,7 +39,6 @@
                         {% endif %}
                     </div>
                     <div>
-                        {% if user.is_authenticated %}
                         <h5 class="comment-header">Comments:</h5>
                         <div class="comment-section">
                             {% for comment in comments %}
@@ -54,6 +53,7 @@
                                 </div>
                             {% endfor %}
                         </div>
+                        {% if user.is_authenticated %}
                         <h5 class="comment-header">Add a comment as {{ user.username }}:</h5>
                             <div>
                                 <form method="POST" class="comment-form">
