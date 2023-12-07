@@ -11,18 +11,18 @@ class TestModels(TestCase):
         self.user.save()
 
         self.post = Post.objects.create(
-            title = 'test',
-            image = 'img.jpeg',
-            slug = 'test',
-            created_by = self.user,
-            status = True
+            title='test',
+            image='img.jpeg',
+            slug='test',
+            created_by=self.user,
+            status=True
         )
         self.post.save()
 
         self.comment = Comment.objects.create(
-            post = self.post,
-            created_by = self.user,
-            comment_content = 'test',
+            post=self.post,
+            created_by=self.user,
+            comment_content='test',
         )
 
     """All New posts should have a slug that matches thier title"""

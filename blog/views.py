@@ -12,6 +12,7 @@ from .models import Post, Comment, Editor, UserProfile
 from .forms import CommentForm, PostForm, EditForm, DeleteForm
 
 
+"""This view will render the three most like posts in index.html"""
 
 class FeaturedPosts(generic.ListView):
     model = Post
@@ -20,13 +21,16 @@ class FeaturedPosts(generic.ListView):
     template_name = 'index.html'
 
     def get_context_data(self, **kwargs):
-        context= super().get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
 
         context['editors'] = Editor.objects.all()
 
         return context
 
 
+"""This view will render the desired post and all it's
+    comments to Specific_post.html.
+    The second function handles posting of comments"""
 
 class SpecificPost(View):
 
@@ -39,7 +43,7 @@ class SpecificPost(View):
             liked = True
 
         return render(
-            request, 
+            request,
             'specific_post.html',
             {
                 'post': post,
@@ -74,6 +78,7 @@ class SpecificPost(View):
         return redirect('specific_post', slug=slug)
 
 
+"""This view will amend the amounts of likes on a post when used"""
 
 class LikePost(LoginRequiredMixin, View):
 
@@ -88,11 +93,15 @@ class LikePost(LoginRequiredMixin, View):
         return HttpResponseRedirect(reverse('specific_post', args=[slug]))
 
 
+"""This view will render all Post objects in blog.html"""
+
 class AllPosts(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=True).order_by('-date_created')
     template_name = 'blog.html'
 
+
+"""This view ensures users are validated and renders the EditForm"""
 
 @login_required
 def edit_post(request, slug):
@@ -106,13 +115,14 @@ def edit_post(request, slug):
             return redirect('specific_post', slug=slug)
     else:
         form = EditForm(instance=post)
-    
     context = {
         'form': form
     }
 
     return render(request, 'edit_post.html', context)
 
+
+"""This view will render the PostForm in add_post.html"""
 
 @login_required
 def add_post(request):
@@ -128,13 +138,14 @@ def add_post(request):
             return redirect('homepage')
         else:
             form = PostForm(request.POST, request.FILES)
-    
     context = {
         'form': form
     }
 
     return render(request, 'add_post.html', context)
 
+
+"""This view will render the DeletePost form in delete_post.html"""
 
 @login_required
 def delete_post(request, slug):
@@ -148,7 +159,6 @@ def delete_post(request, slug):
             return redirect('blog')
     else:
         form = DeleteForm(instance=post)
-    
     context = {
         'form': form
     }
@@ -156,9 +166,12 @@ def delete_post(request, slug):
     return render(request, 'delete_post.html', context)
 
 
+"""Thsi view will remove the resired comment from the specific_post"""
+
 @login_required
 def delete_comment(request, comment_id, slug):
-    comment = get_object_or_404(Comment, id=comment_id, created_by=request.user)
+    comment = get_object_or_404(
+        Comment, id=comment_id, created_by=request.user)
     if request.user == comment.created_by:
         comment.delete()
 

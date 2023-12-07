@@ -8,9 +8,15 @@ urlpatterns = [
     path('like/<slug:slug>', views.LikePost.as_view(), name='post_like'),
     path('add/', views.add_post, name='add'),
     path('edit/<slug:slug>', views.edit_post, name='edit'),
-    path('delete_comment/<int:comment_id>/<slug:slug>', views.delete_comment, name='delete_comment'),
+    path(
+        'delete_comment/<int:comment_id>/<slug:slug>',
+        views.delete_comment,
+        name='delete_comment'),
     path('delete/<slug:slug>', views.delete_post, name='delete_post'),
-    path('specific_post/<slug:slug>', views.SpecificPost.as_view(), name='specific_post')
+    path(
+        'specific_post/<slug:slug>',
+        views.SpecificPost.as_view(),
+        name='specific_post')
 ]
 
 """Custom Error page handlers"""

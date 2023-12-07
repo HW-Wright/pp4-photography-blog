@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse
 from .models import User, Post, Comment, Editor
-from .views import FeaturedPosts, SpecificPost, LikePost, edit_post, add_post, delete_post
+from .views import FeaturedPosts, SpecificPost, LikePost, edit_post, add_post,
+delete_post
 
 
 class TestViews(TestCase):
@@ -14,18 +15,18 @@ class TestViews(TestCase):
         self.user.save()
 
         self.post = Post.objects.create(
-            title = 'test',
-            image = 'img.jpeg',
-            slug = 'test',
-            created_by = self.user,
-            status = True
+            title='test',
+            image='img.jpeg',
+            slug='test',
+            created_by=self.user,
+            status=True
         )
         self.post.save()
 
         self.comment = Comment.objects.create(
-            post = self.post,
-            created_by = self.user,
-            comment_content = 'test',
+            post=self.post,
+            created_by=self.user,
+            comment_content='test',
         )
 
     """The view should produce the three posts with the most likes,
@@ -42,7 +43,8 @@ class TestViews(TestCase):
     """
 
     def test_get_specific_post(self):
-        response = self.client.get(reverse('specific_post', args=[self.post.slug]))
+        response = self.client.get(
+            reverse('specific_post', args=[self.post.slug]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'specific_post.html')
 
@@ -58,8 +60,10 @@ class TestViews(TestCase):
         response = self.client.get(reverse('add'))
         self.assertEqual(response.status_code, 302)
 
-    """This view should redirect the user to the delete post form on delete_post.html"""
+    """This view should redirect the user to the
+    delete post form on delete_post.html"""
 
     def test_delete_post(self):
-        response = self.client.get(reverse('delete_post', args=[self.post.slug]))
+        response = self.client.get(
+            reverse('delete_post', args=[self.post.slug]))
         self.assertEqual(response.status_code, 302)

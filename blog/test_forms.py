@@ -26,7 +26,10 @@ class TestCommentForm(TestCase):
         form = CommentForm({'coment_content': ''})
         self.assertFalse(form.is_valid())
         self.assertIn('comment_content', form.errors.keys())
-        self.assertEqual(form.errors['comment_content'][0], 'This field is required.')
+        self.assertEqual(
+            form.errors['comment_content'][0],
+            'This field is required.'
+        )
 
 
 class TestEditForm(TestCase):

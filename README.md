@@ -106,10 +106,10 @@ For my fourth Portfolio Project I have decided to create a photography blog, wit
 ### Wireframes
 ----------------------------
 - My handdrawn wireframes provided a sufficient design model to work from, from the very beggining of the project. So much so that very little has changed from the original design to the live project.
-- ![index.html-wireframe-pp4]()
-- ![blog.html-wiregrame-pp4]()
-- ![specific-post.html-wireframe-pp4]()
-- ![add_post.html-wireframe-pp4]()
+- ![index.html-wireframe-pp4](/documentation/readme-images/wireframe2-pp4.jpeg)
+- ![blog.html-wiregrame-pp4](/documentation/readme-images/wireframe1-pp4.jpeg)
+- ![specific-post.html-wireframe-pp4](/documentation/readme-images/wireframe3-pp4.jpeg)
+- ![add_post.html-wireframe-pp4](/documentation/readme-images/wireframe4-pp4.jpeg)
 
 ### Model Design
 ----------------------------

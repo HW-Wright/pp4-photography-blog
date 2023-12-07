@@ -6,6 +6,8 @@ from django.conf import settings
 
 STATUS = ((False, 'Draft'), (True, 'Published'))
 
+"""Post model for blog posts"""
+
 class Post(models.Model):
     title = models.CharField(max_length=250, unique=True)
     slug = models.SlugField(max_length=250, unique=True)
@@ -26,6 +28,8 @@ class Post(models.Model):
     def likes_count(self):
         return self.likes.count()
 
+"""Comment model for user comments"""
+
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='photo_comment')
     comment_content = models.TextField()
@@ -39,6 +43,8 @@ class Comment(models.Model):
         return f'{self.comment_content} from {self.created_by}'
 
 
+"""Custom model for mesuring each user's engagement"""
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
@@ -49,6 +55,8 @@ class UserProfile(models.Model):
 
         return points
 
+
+"""Custom model for the site admins"""
 
 class Editor(models.Model):
     name = models.CharField(max_length=50)
